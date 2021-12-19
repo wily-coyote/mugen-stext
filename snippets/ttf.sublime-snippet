@@ -1,0 +1,17 @@
+<snippet>
+	<content><![CDATA[[FNT v2]
+fntversion=2,00
+name="${1:}"
+author="Microsoft"
+
+[Def]
+Type=truetype
+Size=0,${2:0}
+Spacing=1,1
+Offset=0,0
+File=${3:file.ttc}
+Blend=1]]></content>
+	<tabTrigger>ttf</tabTrigger>
+	<description>TrueType font</description>
+	<scope>source.cns</scope>
+</snippet>

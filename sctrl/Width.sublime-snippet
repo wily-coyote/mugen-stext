@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, Width]
+type=Width
+trigger1=${2:}
+edge=${3:0,0}
+player=${4:0,0}
+;value=0,0
+;ignorehitpause=
+;persistent=]]></content>
+	<tabTrigger>width</tabTrigger>
+	<description>New state</description>
+	<scope>source.cns</scope>
+</snippet>

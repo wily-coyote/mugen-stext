@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, TargetLifeAdd]
+type=TargetLifeAdd
+trigger1=${2:}
+value=${3:}
+ID=-1
+kill=${4:1}
+absolute=${5:0}
+;ignorehitpause=
+;persistent=]]></content>
+	<tabTrigger>targetlifeadd</tabTrigger>
+	<description>New state</description>
+	<scope>source.cns</scope>
+</snippet>

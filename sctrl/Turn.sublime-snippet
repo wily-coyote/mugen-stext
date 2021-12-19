@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, Turn]
+type=Turn
+trigger1=${2:}
+;ignorehitpause=
+;persistent=]]></content>
+	<tabTrigger>turn</tabTrigger>
+	<description>New state</description>
+	<scope>source.cns</scope>
+</snippet>

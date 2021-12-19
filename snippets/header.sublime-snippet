@@ -1,0 +1,9 @@
+<snippet>
+	<content><![CDATA[;--------------------------------------------------
+; ${1:}
+;--------------------------------------------------
+]]></content>
+	<tabTrigger>header</tabTrigger>
+	<description>Header (comment)</description>
+	<scope>source.cns</scope>
+</snippet>

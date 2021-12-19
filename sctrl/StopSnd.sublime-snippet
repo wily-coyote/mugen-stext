@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, StopSnd]
+type=StopSnd
+trigger1=${2:}
+channel=${3:-1}
+;ignorehitpause=
+;persistent=]]></content>
+	<tabTrigger>stopsnd</tabTrigger>
+	<description>New state</description>
+	<scope>source.cns</scope>
+</snippet>

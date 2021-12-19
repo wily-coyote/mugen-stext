@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, ${2:1}]
+type=${3:}
+trigger1=]]></content>
+	<tabTrigger>state</tabTrigger>
+	<description>Generic state</description>
+	<scope>source.cns</scope>
+</snippet>

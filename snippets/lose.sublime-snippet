@@ -1,0 +1,16 @@
+<snippet>
+	<content><![CDATA[[Statedef 170]
+type=S
+ctrl=0
+anim=${1:0}
+velset=0,0
+
+[State 170, 1]
+type=NotHitBy
+trigger1=1
+value=SCA
+time=1]]></content>
+	<tabTrigger>lose</tabTrigger>
+	<description>Lose</description>
+	<scope>source.cns</scope>
+</snippet>

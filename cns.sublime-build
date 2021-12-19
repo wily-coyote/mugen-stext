@@ -1,0 +1,21 @@
+{
+	"name": "Run M.U.G.E.N.",
+	"shell_cmd": "mugen",
+	"working_dir": "${file_path}",
+	"selector": "source.cns",
+	"variants":
+	[
+		{
+			"name": "Current character vs current character",
+			"shell_cmd": "mugen ${file_base_name} ${file_base_name}"
+		},
+		{
+			"name": "Current character vs KFM",
+			"shell_cmd": "mugen ${file_base_name} kfm"
+		},
+		{
+			"name": "KFM vs current character",
+			"shell_cmd": "mugen kfm ${file_base_name}"
+		}
+	]
+}

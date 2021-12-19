@@ -1,0 +1,44 @@
+<snippet>
+	<content><![CDATA[[StateDef ${1:0}]
+type=${2:S}
+movetype=A
+physics=${2:S}
+juggle=1
+velset=0,0
+ctrl=0
+anim=${3:0}
+poweradd=20
+sprpriority=2
+
+[State ${1:0}, 1]
+type=HitDef
+trigger1=AnimElem=${4:0}
+attr=S,NA
+damage=${5:0}
+animtype=Light
+guardflag=MA
+hitflag=MAF
+priority=3,Hit
+pausetime=10,10
+sparkno=0
+sparkxy=-10,-76
+hitsound=5,0
+guardsound=6,0
+ground.type=High
+ground.slidetime=5
+ground.hittime=12
+ground.velocity=-4
+airguard.velocity=-1.9,-.8
+air.type=High
+air.velocity=-1.4,-3
+air.hittime=12
+
+[State ${1:0}, end]
+type=ChangeState
+trigger1=AnimTime=0
+value=11
+ctrl=1]]></content>
+	<tabTrigger>punch</tabTrigger>
+	<description>Punch</description>
+	<scope>source.cns</scope>
+</snippet>

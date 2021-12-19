@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, HitVelSet]
+type=HitVelSet
+trigger1=${2:}
+x=${3:1}
+y=${4:1}
+;ignorehitpause=
+;persistent=]]></content>
+	<tabTrigger>hitvelset</tabTrigger>
+	<description>New state</description>
+	<scope>source.cns</scope>
+</snippet>

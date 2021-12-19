@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, HitOverride]
+type=HitOverride
+trigger1=${2:}
+attr=${3:S,NA}        ;SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot=${4:0}
+stateno=${5:-1}
+time=${6:1}
+forceair=${7:0}
+;ignorehitpause=
+;persistent=]]></content>
+	<tabTrigger>hitoverride</tabTrigger>
+	<description>New state</description>
+	<scope>source.cns</scope>
+</snippet>

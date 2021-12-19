@@ -1,0 +1,87 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+name: CNS
+file_extensions:
+  - def
+  - cns
+  - cmd
+scope: source.cns
+variables:
+  operator: '((?:!|~|-|\*\*|\*|\/|%|\+|-|>|>=|<|<=|=|!=|:=|&|\^|\||&&|\^\^|\|\|)+)'
+  anyword: ([a-zA-Z0-9]+)
+  anystrictword: ([a-zA-Z]+)
+  equaloranything: \s*=\s*
+contexts:
+  prototype:
+    - include: comments
+    - include: keys
+  main:
+    - include: numbers
+    - include: strings
+    - include: sections
+    - include: keys
+    - include: operators
+    - include: functions
+    - include: statetypes
+    - include: userconst
+    - include: hitattr
+  comments:
+    - match: ;
+      scope: comment.line.semi-colon.cns
+      push: semicolon
+  strings:
+    - match: '"'
+      scope: punctuation.definition.string.begin.cns
+      push: dblquote
+  sections:
+    - match: ^\s*\[.*?\]
+      scope: keyword.other.cns entity.name.section.cns meta.block.cns
+    - match: '^[^;]*(?=\[.*?\])'
+      scope: invalid.illegal.cns
+  numbers:
+    - meta_include_prototype: false
+    - match: \b(-)?(?!\.{1})[0-9.]+\b
+      scope: constant.numeric.cns
+  keys:
+    - match: '^([^=]*?)\s*(?==)'
+      scope: string.unquoted.cns
+  functions:
+    - match: '[a-zA-Z0-9]+(?=\()'
+      scope: support.function.cns
+    - match: '(?i)[a-zA-Z0-9]+ (?=x|y)'
+      scope: support.function.cns
+  operators:
+    - match: '((?:!|~|-|\*\*|\*|\/|%|\+|-|>|>=|<|<=|=|!=|:=|&|\^|\||&&|\^\^|\|\|)+)'
+      scope: keyword.operator.cns
+  statetypes:
+    - match: (?i)(AfterImageTime|AfterImage|AllPalFX|AngleAdd|AngleDraw|AngleMul|AngleSet|AppendToClipboard|AssertSpecial|AttackDist|AttackMulSet|BGPalFX|BindToParent|BindToRoot|BindToTarget|ChangeAnim2|ChangeAnim|ChangeState|ClearClipboard|CtrlSet|DefenceMulSet|DestroySelf|DisplayToClipboard|EnvColor|EnvShake|ExplodBindTime|Explod|ForceFeedback|FallEnvShake|GameMakeAnim|Gravity|Helper|HitAdd|HitBy|HitDef|HitFallDamage|HitFallSet|HitFallVel|HitOverride|HitVelSet|LifeAdd|LifeSet|MakeDust|ModifyExplod|MoveHitReset|NotHitBy|Null|Offset|PalFX|ParentVarAdd|ParentVarSet|Pause|PlayerPush|PlaySnd|PosAdd|PosFreeze|PosSet|PowerAdd|PowerSet|Projectile|RemapPal|RemoveExplod|ReversalDef|ScreenBound|SelfState|SprPriority|StateTypeSet|SndPan|StopSnd|SuperPause|TargetBind|TargetDrop|TargetFacing|TargetLifeAdd|TargetPowerAdd|TargetState|TargetVelAdd|TargetVelSet|Trans|Turn|VarAdd|VarRandom|VarRangeSet|VarSet|VelAdd|VelMul|VelSet|VictoryQuote|Width)
+      scope: constant.language.cns
+  userconst:
+    - match: (?i)S(\d+)
+      scope: support.function.cns
+      captures:
+        1: constant.numeric.cns
+  hitattr:
+    # HitDef attr
+    - match: '(?i)([sca])\s*,\s*([nsh][atp])'
+      captures:
+        1: constant.language.cns
+        2: constant.language.cns
+    # HitDef keywords
+    - match: (?i)(light|medium|hard|back|up|diagup|hit|miss|dodge|high|low|trip|none)
+      scope: constant.language.cns
+    # HitDef flags
+    - match: '(?i)[MHLAFDBEF+-]+'
+      scope: constant.language.cns
+  dblquote:
+    - meta_include_prototype: false
+    - meta_scope: string.quoted.double.cns
+    - match: '"'
+      scope: punctuation.definition.string.end.cns
+      pop: true
+
+  semicolon:
+    - meta_scope: comment.line.semi-colon.cns
+    - match: $
+      pop: true

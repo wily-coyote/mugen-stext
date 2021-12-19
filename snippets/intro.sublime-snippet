@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[[Statedef 190]
+type=S
+ctrl=0
+anim=${1:0}
+velset=0,0,0
+
+[State 192, 2]
+type=ChangeState
+trigger1=AnimTime=-10
+value=0]]></content>
+	<tabTrigger>intro</tabTrigger>
+	<description>Intro</description>
+	<scope>source.cns</scope>
+</snippet>

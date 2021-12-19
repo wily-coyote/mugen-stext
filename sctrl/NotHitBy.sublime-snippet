@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, NotHitBy]
+type=NotHitBy
+trigger1=${2:}
+value=${3:SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT}
+;value2=S,NA
+time=${4:1}
+;ignorehitpause=
+;persistent=]]></content>
+	<tabTrigger>nothitby</tabTrigger>
+	<description>New state</description>
+	<scope>source.cns</scope>
+</snippet>

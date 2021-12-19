@@ -1,0 +1,34 @@
+; SYNTAX TEST "Packages/MUGEN/air.sublime-syntax"
+
+[Begin Action 5150]
+;^^^^^^^^^^^^^^^^^^ keyword.other.air entity.name.section.air meta.block.air
+Clsn2Default: 2
+;^^^^^^^^^^^ support.function.air
+;             ^ constant.numeric.air
+  Clsn2[0] = 0, 0, 0, 0
+; ^^^^^ support.function.air
+;       ^ constant.numeric.air
+;            ^ constant.numeric.air
+;               ^ constant.numeric.air
+;                  ^ constant.numeric.air
+;                     ^ constant.numeric.air
+
+Interpolate Offset
+;^^^^^^^^^^ support.function.air
+;           ^^^^^^ constant.language.air
+
+Loopstart
+;^^^^^^^^ support.function.air
+
+15,4, 0,0, 5, ,AS128D128
+;^ constant.numeric.air
+;  ^ constant.numeric.air
+;     ^ constant.numeric.air
+;       ^ constant.numeric.air
+;          ^ constant.numeric.air
+;              ^^^^^^^^^ support.function.air
+;                ^^^ support.function.air constant.numeric.air
+;                    ^^^ support.function.air constant.numeric.air                 
+
+; this comment
+;^^^^^^^^^^^^^ comment.line.semi-colon.air

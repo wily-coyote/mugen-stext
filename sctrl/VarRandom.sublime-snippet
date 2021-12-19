@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, VarRandom]
+type=VarRandom
+trigger1=${2:}
+v=${3:}
+range=${4:0,1000}
+;ignorehitpause=
+;persistent=]]></content>
+	<tabTrigger>varrandom</tabTrigger>
+	<description>New state</description>
+	<scope>source.cns</scope>
+</snippet>

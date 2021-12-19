@@ -1,0 +1,32 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, ModifyExplod]
+type=ModifyExplod
+trigger1=${2:}
+ID=
+anim=${3:}
+pos=${4:0,0}
+postype=${5:p1}  ;p2,front,back,left,right
+facing=${6:1}
+vfacing=${7:1}
+bindtime=${8:1}
+vel=${9:0,0}
+accel=${10:0,0}
+random=${11:0,0}
+removetime=${12:-2}
+pausemovetime=${13:0}
+scale=${14:1,1}
+sprpriority=${15:0}
+ontop=${16:0}
+shadow=${17:0,0,0}
+ownpal=${18:0}
+removeongethit=${19:0}
+;ignorehitpause=
+;trans=
+;persistent=
+;supermove=0
+;pausemove=0
+]]></content>
+	<tabTrigger>modifyexplod</tabTrigger>
+	<description>New state</description>
+	<scope>source.cns</scope>
+</snippet>

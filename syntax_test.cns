@@ -1,0 +1,29 @@
+; SYNTAX TEST "Packages/MUGEN/cns.sublime-syntax"
+
+[Statedef -1]
+;^^^^^^^^^^^^ keyword.other.cns entity.name.section.cns meta.block.cns
+
+[State 0, ChangeState]
+;^^^^^^^^^^^^^^^^^^^^^ keyword.other.cns entity.name.section.cns meta.block.cns
+
+type=ChangeState
+;^^^ string.unquoted.cns
+;   ^ keyword.operator.cns
+;    ^^^^^^^^^^^ constant.language.cns
+
+; this comment
+;^^^^^^^^^^^^^ comment.line.semi-colon.cns
+
+attr=S,NA
+;    ^ constant.language.cns
+;      ^^ constant.language.cns
+
+hitsound=S1,0
+;        ^^ support.function.cns
+;         ^ support.function.cns constant.numeric.cns
+
+hitflag=MAF
+;       ^^^ constant.language.cns
+
+animtype=light
+;        ^^^^^ constant.language.cns

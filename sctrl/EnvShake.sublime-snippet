@@ -1,0 +1,14 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, EnvShake]
+type=EnvShake
+;trigger1=
+;time=1
+;freq=60
+;ampl=-4
+;phase=90
+;ignorehitpause=
+;persistent=]]></content>
+	<tabTrigger>envshake</tabTrigger>
+	<description>New state</description>
+	<scope>source.cns</scope>
+</snippet>

@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[[Files]
+sprite=${1:kfm.sff}
+anim=${2:kfm.air}
+sound=${3:kfm.snd}
+cmd=${4:kfm.cmd}
+cns=${5:kfm.cns}
+stcommon=${6:common1.cns}
+st=${7:kfm.cns}
+pal1=
+]]></content>
+	<tabTrigger>files</tabTrigger>
+	<description>Files</description>
+	<scope>source.cns</scope>
+</snippet>

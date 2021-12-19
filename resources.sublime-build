@@ -1,0 +1,15 @@
+{
+	"name": "Compile resources",
+	"working_dir": "${file_path}",
+	"selector": "source.cns",
+	"variants": [
+		{
+			"name": "SFF (sprmake2)",
+			"shell_cmd": "sprmake2 -o ${file_base_name}.sff ${file_name}"
+		},
+		{
+			"name": "SND (sndmaker)",
+			"shell_cmd": "sndmaker < ${file}"
+		}
+	]
+}

@@ -1,0 +1,50 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+name: AIR
+file_extensions:
+  - air
+scope: source.air
+contexts:
+  prototype:
+    - include: comments
+  comments:
+    - match: ;
+      scope: comment.line.semi-colon.air
+      push: semicolon
+  main:
+    - include: numbers
+    - include: sections
+    - include: anims
+    - include: hitboxes
+    - include: loops
+    - include: commands
+  numbers:
+    - match: -?[\d.]+
+      scope: constant.numeric.air
+  sections:
+    - match: ^\s*\[.*?\]
+      scope: keyword.other.air entity.name.section.air meta.block.air
+  anims:
+    - match: '(?i)(interpolate)\s+(offset|blend|scale|angle)'
+      captures:
+        1: support.function.air
+        2: constant.language.air
+  hitboxes:
+    - match: '(?i)clsn(?:1|2)(?:default)?'
+      scope: support.function.air
+  loops:
+    - match: '(?i)loopstart'
+      scope: support.function.air
+  commands:
+    - match: '(?i)AS(\d+)D(\d+)'
+      scope: support.function.air
+      captures:
+        1: constant.numeric.air
+        2: constant.numeric.air
+    - match : '(?i)\b[ASVH]+\b'
+      scope: support.function.air
+  semicolon:
+    - meta_scope: comment.line.semi-colon.air
+    - match: $
+      pop: true

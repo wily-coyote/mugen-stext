@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, RemoveExplod]
+type=RemoveExplod
+trigger1=${2:}
+id=${3:}
+;ignorehitpause=
+;persistent=]]></content>
+	<tabTrigger>removeexplod</tabTrigger>
+	<description>New state</description>
+	<scope>source.cns</scope>
+</snippet>

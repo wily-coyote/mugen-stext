@@ -1,0 +1,19 @@
+<snippet>
+	<content><![CDATA[[Statedef 181]
+type=S
+ctrl=0
+anim=${1:0}
+facing=1
+pos=0,0
+postype=p1
+velset=0,0
+
+[State 181, 1]
+type=NotHitBy
+trigger1=1
+value=SCA
+time=1]]></content>
+	<tabTrigger>win</tabTrigger>
+	<description>Win</description>
+	<scope>source.cns</scope>
+</snippet>

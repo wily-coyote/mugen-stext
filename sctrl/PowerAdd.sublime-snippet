@@ -1,0 +1,11 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, PowerAdd]
+type=PowerAdd
+trigger1=${2:}
+value=${3:0}
+;ignorehitpause=
+;persistent=]]></content>
+	<tabTrigger>poweradd</tabTrigger>
+	<description>New state</description>
+	<scope>source.cns</scope>
+</snippet>

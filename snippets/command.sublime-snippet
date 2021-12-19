@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[[Command]
+name="${1:}"
+command=${2:}
+time=
+]]></content>
+	<tabTrigger>cmd</tabTrigger>
+	<description>Command</description>
+	<scope>source.cns</scope>
+</snippet>

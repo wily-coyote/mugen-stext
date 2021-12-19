@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[[Info]
+name="${1:}"
+displayname="${2:}"
+versiondate=${3:}
+mugenversion=04,06,2004
+author="${4:}"
+pal.defaults=]]></content>
+	<tabTrigger>infobeta</tabTrigger>
+	<description>Info - M.U.G.E.N. Beta</description>
+	<scope>source.cns</scope>
+</snippet>

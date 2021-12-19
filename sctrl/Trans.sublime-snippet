@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, Trans]
+type=Trans
+trigger1=${2:}
+trans=${3:default} ;none, add, addalpha, add1, sub
+;alpha=256,256
+;ignorehitpause=
+;persistent=]]></content>
+	<tabTrigger>trans</tabTrigger>
+	<description>New state</description>
+	<scope>source.cns</scope>
+</snippet>

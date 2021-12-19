@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, FallEnvShake]
+type=FallEnvShake
+trigger1=${2:}
+;ignorehitpause=
+;persistent=]]></content>
+	<tabTrigger>fallenvshake</tabTrigger>
+	<description>New state</description>
+	<scope>source.cns</scope>
+</snippet>

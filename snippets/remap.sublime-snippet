@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[[Remap]
+x=x
+y=y
+z=z
+a=a
+b=b
+c=c
+s=s]]></content>
+	<tabTrigger>remap</tabTrigger>
+	<description>Button remapping</description>
+	<scope>source.cns</scope>
+</snippet>

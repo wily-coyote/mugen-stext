@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, TargetState]
+type=TargetState
+triggerall=${2:NumTarget;()}
+trigger1=${3:}
+value=${4:}
+ID=-1
+;ignorehitpause=
+;persistent=]]></content>
+	<tabTrigger>targetstate</tabTrigger>
+	<description>New state</description>
+	<scope>source.cns</scope>
+</snippet>

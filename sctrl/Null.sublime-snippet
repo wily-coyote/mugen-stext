@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[[State ${1:0}, Null]
+type=Null
+trigger1=${2:}
+;ignorehitpause=
+;persistent=]]></content>
+	<tabTrigger>null</tabTrigger>
+	<description>New state</description>
+	<scope>source.cns</scope>
+</snippet>
