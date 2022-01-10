@@ -44,7 +44,7 @@ contexts:
     - match: \b(-)?(?!\.{1})[0-9.]+\b
       scope: constant.numeric.cns
   keys:
-    - match: '^([^=]*?)\s*(?==)'
+    - match: '^([^=;]*?)\s*(?==)'
       scope: string.unquoted.cns
   functions:
     - match: '[a-zA-Z0-9]+(?=\()'
@@ -64,7 +64,7 @@ contexts:
         1: constant.numeric.cns
   hitattr:
     # HitDef attr
-    - match: '(?i)([sca])\s*,\s*([nsh][atp])'
+    - match: '(?i)\b([sca])\s*,\s*([nsh][atp])\b'
       captures:
         1: constant.language.cns
         2: constant.language.cns
@@ -72,7 +72,7 @@ contexts:
     - match: (?i)(light|medium|hard|back|up|diagup|hit|miss|dodge|high|low|trip|none)
       scope: constant.language.cns
     # HitDef flags
-    - match: '(?i)[MHLAFDBEF+-]+'
+    - match: '(?i)\b[MHLAFDBEF+-]+\b'
       scope: constant.language.cns
   dblquote:
     - meta_include_prototype: false
