@@ -8,6 +8,6 @@ author="${4:}"
 localcoord=${5:0,0}
 pal.defaults=]]></content>
 	<tabTrigger>info1.0</tabTrigger>
-	<description>Info - M.U.G.E.N. 1.0</description>
+	<description>Info - MUGEN 1.0</description>
 	<scope>source.cns</scope>
 </snippet>

@@ -7,6 +7,6 @@ mugenversion=04,06,2004
 author="${4:}"
 pal.defaults=]]></content>
 	<tabTrigger>infobeta</tabTrigger>
-	<description>Info - M.U.G.E.N. Beta</description>
+	<description>Info - MUGEN Beta</description>
 	<scope>source.cns</scope>
 </snippet>
