@@ -1,0 +1,5 @@
+{
+	"name": "Run sndmaker",
+	"target": "sndmaker",
+	"selector": "source.cns",
+}

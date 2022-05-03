@@ -1,0 +1,5 @@
+{
+	"name": "Run sprmake2",
+	"target": "sprmake2",
+	"selector": "source.cns",
+}
