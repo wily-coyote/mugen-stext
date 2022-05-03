@@ -6,7 +6,7 @@ import threading
 import os
 from .utils import command
 
-class SndmakerCommand(command.MUGENBaseCommand):
+class SndmakerCommand(command.BaseCommand):
 	description = "Run sndmaker"
 	def get_cli(self, vars):
 		"""Get working directory and command line"""
@@ -18,4 +18,4 @@ class SndmakerCommand(command.MUGENBaseCommand):
 			self.window.open_file("{}/MUGEN/MUGEN.sublime-settings".format(sublime.packages_path()))
 			return None
 		mugen = os.path.split(mugen)[0]
-		return (mugen, [os.path.join(mugen, "sndmaker"), "<", vars["file"]])
+		return mugen, [os.path.join(mugen, "sndmaker"), "<", vars["file"]]

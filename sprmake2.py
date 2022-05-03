@@ -6,7 +6,7 @@ import threading
 import os
 from .utils import command
 
-class Sprmake2Command(command.MUGENBaseCommand):
+class Sprmake2Command(command.BaseCommand):
 	description = "Run sprmake2"
 	def get_cli(self, vars):
 		"""Get working directory and command line"""
@@ -18,4 +18,4 @@ class Sprmake2Command(command.MUGENBaseCommand):
 			self.window.open_file("{}/MUGEN/MUGEN.sublime-settings".format(sublime.packages_path()))
 			return None
 		mugen = os.path.split(mugen)[0]
-		return (mugen, [os.path.join(mugen, "sprmake2"), "-o", vars["file_base_name"], vars["file_name"]])
+		return mugen, [os.path.join(mugen, "sprmake2"), vars["file"]]

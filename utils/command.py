@@ -5,7 +5,7 @@ import subprocess
 import threading
 import os
 
-class MUGENBaseCommand(sublime_plugin.WindowCommand):
+class BaseCommand(sublime_plugin.WindowCommand):
 	encoding = "utf-8"
 	killed = False
 	proc = None
@@ -14,22 +14,22 @@ class MUGENBaseCommand(sublime_plugin.WindowCommand):
 	def run(self, name=None, char1="", char2=""):
 		runs = locals()
 		
-		args = self.get_cli(runs)
+		working_dir, argv = self.get_cli(runs)
 
-		if args is None:
+		if argv is None:
 			return
 
 		with self.panel_lock:
 			self.panel = self.window.create_output_panel("exec")
 			self.window.run_command("show_panel", {"panel": "output.exec"})
 
-		self.queue_write('%s\n' % args)
+		self.queue_write('{}, {}\n'.format(working_dir, argv))
 
 		self.proc = subprocess.Popen(
-			args[1],
+			argv,
 			stdout=subprocess.PIPE,
 			stderr=subprocess.STDOUT,
-			cwd=args[0],
+			cwd=working_dir,
 			shell=True
 		)
 
@@ -51,8 +51,8 @@ class MUGENBaseCommand(sublime_plugin.WindowCommand):
 			self.window.open_file("{}/MUGEN/MUGEN.sublime-settings".format(sublime.packages_path()))
 			sublime.save_settings("MUGEN.sublime-settings")
 			return None
-		mugen = os.path.split(mugen)[0]
-		return (mugen, [os.path.join(mugen, "sprmake2"), "-o", vars["file_base_name"], vars["file_name"]])
+		args = [mugen]
+		return (os.path.split(mugen)[0], args)
 
 	def is_enabled(self):
 		return True
