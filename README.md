@@ -10,7 +10,7 @@ Just `git clone` it to the Packages folder. I can't be bothered to host it on pa
 
 - A port of all the snippets and state controllers from Fighter Factory 3
 - Syntax highlighting for CNS/CMD/DEF and AIR
-- Build commands for running MUGEN and sndmaker/sprmake2 (config file allows you to change which version of MUGEN to run)
+- Build targets for running MUGEN and sndmaker/sprmake2 (config file allows you to change which version of MUGEN to run)
 - Autocomplete for state controllers and their parameters
 
 ### TODO
@@ -19,7 +19,11 @@ Just `git clone` it to the Packages folder. I can't be bothered to host it on pa
 
 ### Changelog
 
-#### 03-05-2022 - 0.0.3
+#### 24-07-2022 - 1.1.0
+- Added stage build target
+- Changelog now uses SemVer
+
+#### 03-05-2022 - 1.0.0
 - Added Python modules for build systems, effectively redoing the entire thing
 - Package now has a config file instead of relying on `PATH`
 - Added changelog to README

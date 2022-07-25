@@ -6,15 +6,25 @@ import threading
 import os
 
 from .utils import command
+from .utils import def_reader
 
 class MugenCommand(command.BaseCommand):
 	def get_cli(self, shtuff):
 		vars = self.window.extract_variables()
 		settings = sublime.load_settings("MUGEN.sublime-settings")
 		mugen = settings.get("mugen_path", "")
-		for x in ["char1", "char2"]:
+		for x in ["char1", "char2", "motif", "stage"]:
 			if shtuff[x] == "${file_base_name}":
 				shtuff[x] = vars["file_base_name"]
+			if shtuff[x] == "${def_output}":
+				print("fard")
+				with open(vars["file"], "r") as file:
+					deffile = def_reader.read(file)
+					print(deffile)
+					if ("Output" in deffile) and ("filename" in deffile["Output"]):
+						shtuff[x] = os.path.splitext(os.path.basename(deffile["Output"]["filename"]))[0]
+					else:
+						shtuff[x] = vars["file_base_name"]
 		if len(mugen) <= 0:
 			sublime.error_message("Please tell me where MUGEN is and run the build again.")
 			self.window.open_file("{}/MUGEN/MUGEN.sublime-settings".format(sublime.packages_path()))
@@ -24,4 +34,10 @@ class MugenCommand(command.BaseCommand):
 		if len(shtuff["char1"]) > 0 or len(shtuff["char2"]) > 0:
 			args.append(shtuff["char1"])
 			args.append(shtuff["char2"])
+		if len(shtuff["motif"]) > 0:
+			args.append("-r")
+			args.append(shtuff["motif"])
+		if len(shtuff["stage"]) > 0:
+			args.append("-s")
+			args.append(shtuff["stage"])
 		return os.path.split(mugen)[0], args

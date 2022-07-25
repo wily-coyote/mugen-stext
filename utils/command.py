@@ -11,7 +11,7 @@ class BaseCommand(sublime_plugin.WindowCommand):
 	proc = None
 	panel = None
 	panel_lock = threading.Lock()
-	def run(self, name=None, char1="", char2=""):
+	def run(self, name=None, char1="", char2="", motif="", stage=""):
 		runs = locals()
 		
 		working_dir, argv = self.get_cli(runs)
