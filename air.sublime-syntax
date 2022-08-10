@@ -8,43 +8,61 @@ scope: source.air
 contexts:
   prototype:
     - include: comments
-  comments:
-    - match: ;
-      scope: comment.line.semi-colon.air
-      push: semicolon
+
   main:
     - include: numbers
     - include: sections
-    - include: anims
     - include: hitboxes
-    - include: loops
     - include: commands
+
+  comments:
+    - match: ;
+      scope: comment.line.semi-colon.air
+      push:
+        - meta_scope: comment.line.semi-colon.air
+        - match: $
+          pop: true
+
   numbers:
-    - match: -?[\d.]+
+    - match: '-?\.?\b[0-9.]+\b'
       scope: constant.numeric.air
+
   sections:
-    - match: ^\s*\[.*?\]
-      scope: keyword.other.air entity.name.section.air meta.block.air
-  anims:
+    - include: numbers
+    - match: '\s*\['
+      scope: punctuation.section.group.begin.air
+      push:
+        - meta_scope: keyword.context.block.air
+        - include: numbers
+        - match: '[\]\n]'
+          scope: punctuation.section.group.end.air
+          pop: true
+
+  commands:
     - match: '(?i)(interpolate)\s+(offset|blend|scale|angle)'
       captures:
-        1: support.function.air
+        1: variable.function.air
         2: constant.language.air
-  hitboxes:
-    - match: '(?i)clsn(?:1|2)(?:default)?'
-      scope: support.function.air
-  loops:
     - match: '(?i)loopstart'
-      scope: support.function.air
-  commands:
+      scope: variable.function.air
     - match: '(?i)AS(\d+)D(\d+)'
-      scope: support.function.air
+      scope: variable.function.air
       captures:
         1: constant.numeric.air
         2: constant.numeric.air
     - match : '(?i)\b[ASVH]+\b'
-      scope: support.function.air
-  semicolon:
-    - meta_scope: comment.line.semi-colon.air
-    - match: $
-      pop: true
+      scope: variable.function.air
+
+  hitboxes:
+    - match: '([a-zA-Z0-9_]+)\s*(\[)'
+      captures:
+        1: variable.function.air
+        2: punctuation.section.group.begin.air
+      push:
+        - include: numbers
+        - match: \]
+          scope: punctuation.section.group.end.air
+          pop: true
+    - match: '([a-zA-Z0-9_]+)\s*(:)'
+      captures:
+        1: variable.function.air

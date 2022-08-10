@@ -7,81 +7,84 @@ file_extensions:
   - cns
   - cmd
 scope: source.cns
-variables:
-  operator: '((?:!|~|-|\*\*|\*|\/|%|\+|-|>|>=|<|<=|=|!=|:=|&|\^|\||&&|\^\^|\|\|)+)'
-  anyword: ([a-zA-Z0-9]+)
-  anystrictword: ([a-zA-Z]+)
-  equaloranything: \s*=\s*
+
 contexts:
   prototype:
     - include: comments
-    - include: keys
+
   main:
+    - include: sections
+    - include: type
+    - include: keyvalue
+    - include: functions
+    - include: operators
     - include: numbers
     - include: strings
-    - include: sections
-    - include: keys
-    - include: operators
-    - include: functions
-    - include: statetypes
-    - include: userconst
-    - include: hitattr
-  comments:
-    - match: ;
-      scope: comment.line.semi-colon.cns
-      push: semicolon
+
+  sections:
+    - include: numbers
+    - match: '\s*\['
+      scope: punctuation.section.group.begin.cns
+      push:
+        - meta_scope: keyword.context.block.cns
+        - include: numbers
+        - match: '[\]\n]'
+          scope: punctuation.section.group.end.cns
+          pop: true
+
+  keyvalue:
+    - match: ^\s*(.+?)\s*(=)\s*
+      captures:
+        1: meta.mapping.key.cns string.other.cns
+        2: keyword.operator.assignment.cns punctuation.separator.mapping.key-value.cns
+
+  type:
+    - match: '(?i)\b(type)\b\s*(=)\s*(.*?)(?:$|(?=\s*;))'
+      captures:
+        1: meta.mapping.key.cns string.other.cns
+        2: keyword.operator.assignment.cns punctuation.separator.mapping.key-value.cns
+        3: variable.function.cns
+
+  operators:
+    - match: '(?:!|~|-|\*\*|\*|/|%|\+|>|>=|<|<=|=|!=|:=|&|\^|\||&&|\^\^|\|\|)'
+      scope: keyword.operator.arithmetic.cns
+
+  functions:
+    - match: '([a-zA-Z0-9_]+)\s*(\()'
+      captures:
+        1: variable.function.cns
+        2: punctuation.section.group.begin.cns
+      push:
+        - include: numbers
+        - include: operators
+        - match: \)
+          scope: punctuation.section.group.end.cns
+          pop: true
+
+  numbers:
+    - match: '-?\.?\b[0-9.]+\b'
+      scope: constant.numeric.cns
+
   strings:
     - match: '"'
       scope: punctuation.definition.string.begin.cns
-      push: dblquote
-  sections:
-    - match: ^\s*\[.*?\]
-      scope: keyword.other.cns entity.name.section.cns meta.block.cns
-    - match: '^[^;]*(?=\[.*?\])'
-      scope: invalid.illegal.cns
-  numbers:
-    - meta_include_prototype: false
-    - match: \b(-)?(?!\.{1})[0-9.]+\b
-      scope: constant.numeric.cns
-  keys:
-    - match: '^([^=;]*?)\s*(?==)'
-      scope: string.unquoted.cns
-  functions:
-    - match: '[a-zA-Z0-9]+(?=\()'
-      scope: support.function.cns
-    - match: '(?i)[a-zA-Z0-9]+ (?=x|y)'
-      scope: support.function.cns
-  operators:
-    - match: '((?:!|~|-|\*\*|\*|\/|%|\+|-|>|>=|<|<=|=|!=|:=|&|\^|\||&&|\^\^|\|\|)+)'
-      scope: keyword.operator.cns
-  statetypes:
-    - match: (?i)(AfterImageTime|AfterImage|AllPalFX|AngleAdd|AngleDraw|AngleMul|AngleSet|AppendToClipboard|AssertSpecial|AttackDist|AttackMulSet|BGPalFX|BindToParent|BindToRoot|BindToTarget|ChangeAnim2|ChangeAnim|ChangeState|ClearClipboard|CtrlSet|DefenceMulSet|DestroySelf|DisplayToClipboard|EnvColor|EnvShake|ExplodBindTime|Explod|ForceFeedback|FallEnvShake|GameMakeAnim|Gravity|Helper|HitAdd|HitBy|HitDef|HitFallDamage|HitFallSet|HitFallVel|HitOverride|HitVelSet|LifeAdd|LifeSet|MakeDust|ModifyExplod|MoveHitReset|NotHitBy|Null|Offset|PalFX|ParentVarAdd|ParentVarSet|Pause|PlayerPush|PlaySnd|PosAdd|PosFreeze|PosSet|PowerAdd|PowerSet|Projectile|RemapPal|RemoveExplod|ReversalDef|ScreenBound|SelfState|SprPriority|StateTypeSet|SndPan|StopSnd|SuperPause|TargetBind|TargetDrop|TargetFacing|TargetLifeAdd|TargetPowerAdd|TargetState|TargetVelAdd|TargetVelSet|Trans|Turn|VarAdd|VarRandom|VarRangeSet|VarSet|VelAdd|VelMul|VelSet|VictoryQuote|Width)
-      scope: constant.language.cns
-  userconst:
-    - match: (?i)S(\d+)
-      scope: support.function.cns
-      captures:
-        1: constant.numeric.cns
-  hitattr:
-    # HitDef attr
-    - match: '(?i)\b([sca])\s*,\s*([nsh][atp])\b'
-      captures:
-        1: constant.language.cns
-        2: constant.language.cns
-    # HitDef keywords
-    - match: (?i)(light|medium|hard|back|up|diagup|hit|miss|dodge|high|low|trip|none)
-      scope: constant.language.cns
-    # HitDef flags
-    - match: '(?i)\b[MHLAFDBEF+-]+\b'
-      scope: constant.language.cns
-  dblquote:
-    - meta_include_prototype: false
-    - meta_scope: string.quoted.double.cns
-    - match: '"'
-      scope: punctuation.definition.string.end.cns
-      pop: true
+      push:
+        - meta_scope: string.quoted.double.cns
+        - match: '"'
+          scope: punctuation.definition.string.end.cns
+          pop: true
+    - match: \'
+      scope: punctuation.definition.string.begin.cns
+      push:
+        - meta_scope: string.quoted.single.cns
+        - match: \'
+          scope: punctuation.definition.string.end.cns
+          pop: true
 
-  semicolon:
-    - meta_scope: comment.line.semi-colon.cns
-    - match: $
-      pop: true
+  comments:
+    - match: ';'
+      scope: punctuation.definition.comment.cns
+      push:
+        - meta_scope: comment.line.semi-colon.cns
+        - match: $\n?
+          pop: true

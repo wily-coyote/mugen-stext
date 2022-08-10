@@ -19,6 +19,10 @@ Just `git clone` it to the Packages folder. I can't be bothered to host it on pa
 
 ### Changelog
 
+#### 09-08-2022 - 1.2.0
+- Rewrite CNS syntax
+- Rewrite AIR syntax from CNS rewrite
+
 #### 24-07-2022 - 1.1.0
 - Added stage build target
 - Changelog now uses SemVer
