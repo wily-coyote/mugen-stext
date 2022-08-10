@@ -16,7 +16,7 @@ contexts:
     - include: commands
 
   comments:
-    - match: ;
+    - match: '\s*;'
       scope: comment.line.semi-colon.air
       push:
         - meta_scope: comment.line.semi-colon.air

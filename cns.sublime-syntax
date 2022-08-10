@@ -82,7 +82,7 @@ contexts:
           pop: true
 
   comments:
-    - match: ';'
+    - match: '\s*;'
       scope: punctuation.definition.comment.cns
       push:
         - meta_scope: comment.line.semi-colon.cns
