@@ -2,9 +2,11 @@
 
 [Statedef -1]
 ;^^^^^^^^^^^^ keyword.other.cns entity.name.section.cns meta.block.cns
+;         ^^ keyword.context.block.cns constant.numeric.cns
 
 [State 0, ChangeState]
 ;^^^^^^^^^^^^^^^^^^^^^ keyword.other.cns entity.name.section.cns meta.block.cns
+;      ^ keyword.context.block.cns constant.numeric.cns
 
 type=ChangeState
 ;^^^ string.unquoted.cns
@@ -14,16 +16,3 @@ type=ChangeState
 ; this comment
 ;^^^^^^^^^^^^^ comment.line.semi-colon.cns
 
-attr=S,NA
-;    ^ constant.language.cns
-;      ^^ constant.language.cns
-
-hitsound=S1,0
-;        ^^ support.function.cns
-;         ^ support.function.cns constant.numeric.cns
-
-hitflag=MAF
-;       ^^^ constant.language.cns
-
-animtype=light
-;        ^^^^^ constant.language.cns
