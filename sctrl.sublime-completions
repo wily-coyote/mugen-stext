@@ -2,7 +2,7 @@
  "scope": "source.cns",
  "completions": [
   {
-   "trigger": "afterimage",
+   "trigger": "AfterImage",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, AfterImage]\ntype=AfterImage\ntime=${2:0}\nlength=${3:0}\npalcolor=${4:0}\npalinvertall=${5:}\npalbright=${6:0}\npalcontrast=${7:0}\npalpostbright=${8:0}\npaladd=${9:0}\npalmul=${10:0}\ntimegap=${11:0}\nframegap=${12:0}\ntrans=${13:}",
    "kind": [
@@ -13,7 +13,7 @@
    "details": "Enables player afterimage effects. The character's frames are stored in a history buffer, and are displayed after a delay as afterimages."
   },
   {
-   "trigger": "afterimagetime",
+   "trigger": "AfterImageTime",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, AfterImageTime]\ntype=AfterImageTime\ntime=${2:0}",
    "kind": [
@@ -24,7 +24,7 @@
    "details": "Changes the duration of the player's afterimage effects, if currently enabled. If no afterimage effects are being displayed, this controller does nothing.\nKnown bugs: If the timegap parameter in the originating AfterImage controller is not set at 1, using this AfterImageTime will cause the frame positions to be reset."
   },
   {
-   "trigger": "allpalfx",
+   "trigger": "AllPalFX",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, AllPalFX]\ntype=AllPalFX\n",
    "kind": [
@@ -35,7 +35,7 @@
    "details": "Same as PalFX, except that this affects the palette of the background and lifebars as well as the palette of all characters and explods (regardless of the ownpal parameter). See the PalFX section for details on the parameters to AllPalFX."
   },
   {
-   "trigger": "angleadd",
+   "trigger": "AngleAdd",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, AngleAdd]\ntype=AngleAdd\nvalue=${2:0}",
    "kind": [
@@ -46,7 +46,7 @@
    "details": "Adds to the drawing rotation angle used by AngleDraw."
   },
   {
-   "trigger": "angledraw",
+   "trigger": "AngleDraw",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, AngleDraw]\ntype=AngleDraw\nvalue=${2:0}",
    "kind": [
@@ -57,7 +57,7 @@
    "details": "Draws the player (for 1 frame) rotated about his axis by the angle set by the AngleSet controller. When facing right, a positive angle means a counterclockwise rotation."
   },
   {
-   "trigger": "anglemul",
+   "trigger": "AngleMul",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, AngleMul]\ntype=AngleMul\nvalue=${2:0}",
    "kind": [
@@ -68,7 +68,7 @@
    "details": "Multiplies the drawing rotation angle used by AngleDraw by the specified factor."
   },
   {
-   "trigger": "angleset",
+   "trigger": "AngleSet",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, AngleSet]\ntype=AngleSet\nvalue=${2:0}",
    "kind": [
@@ -79,7 +79,7 @@
    "details": "Sets the drawing rotation angle used by AngleDraw. The angle is initialized at 0."
   },
   {
-   "trigger": "appendtoclipboard",
+   "trigger": "AppendToClipboard",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, AppendToClipboard]\ntype=AppendToClipboard\n",
    "kind": [
@@ -90,7 +90,7 @@
    "details": "This is the same as DisplayToClipboard, except that message text is added on a new line, instead of overwriting whatever text is already on the clipboard. See DisplayToClipboard for a format description."
   },
   {
-   "trigger": "assertspecial",
+   "trigger": "AssertSpecial",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, AssertSpecial]\ntype=AssertSpecial\n",
    "kind": [
@@ -101,7 +101,7 @@
    "details": "This controller allows you to assert up to three special flags simultaneously. MUGEN will automatically \"deassert\" each flag at every game tick, so you must assert a flag for each tick that you want it to be active."
   },
   {
-   "trigger": "attackdist",
+   "trigger": "AttackDist",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, AttackDist]\ntype=AttackDist\nvalue=${2:0}",
    "kind": [
@@ -112,7 +112,7 @@
    "details": "Changes the value of the guard.dist parameter for the player's current HitDef. The guard.dist is the x-distance from P1 in which P2 will go\ninto a guard state if P2 is holding the direction away from P1.\nThe effect of guard.dist only takes effect when P1 has movetype = A."
   },
   {
-   "trigger": "attackmulset",
+   "trigger": "AttackMulSet",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, AttackMulSet]\ntype=AttackMulSet\nvalue=${2:0}",
    "kind": [
@@ -123,7 +123,7 @@
    "details": "Sets the player's attack multiplier. All damage the player gives is scaled by this amount."
   },
   {
-   "trigger": "bgpalfx",
+   "trigger": "BGPalFX",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, BGPalFX]\ntype=BGPalFX\n",
    "kind": [
@@ -134,7 +134,7 @@
    "details": "Same as PalFX, except that this affects the palette of the background and lifebars instead of the palette of the character. See the PalFX section for details on the parameters to BGPalFX."
   },
   {
-   "trigger": "bindtoparent",
+   "trigger": "BindToParent",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, BindToParent]\ntype=BindToParent\ntime=${2:0}\nfacing=${3:0}\npos=${4:0}",
    "kind": [
@@ -145,7 +145,7 @@
    "details": "If the player is a helper, binds the player to a specified position relative to its parent. If the player is not a helper, this controller does nothing."
   },
   {
-   "trigger": "bindtoroot",
+   "trigger": "BindToRoot",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, BindToRoot]\ntype=BindToRoot\ntime=${2:0}\nfacing=${3:0}\npos=${4:0}",
    "kind": [
@@ -156,7 +156,7 @@
    "details": "If the player is a helper, binds the player to a specified position relative to its root. If the player is not a helper, this controller does nothing."
   },
   {
-   "trigger": "bindtotarget",
+   "trigger": "BindToTarget",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, BindToTarget]\ntype=BindToTarget\ntime=${2:0}\nID=${3:0}\npos=${4:}",
    "kind": [
@@ -167,7 +167,7 @@
    "details": "Binds the player to a specified position relative to the specified target."
   },
   {
-   "trigger": "changeanim",
+   "trigger": "ChangeAnim",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, ChangeAnim]\ntype=ChangeAnim\nvalue=${2:0}\nelem=${2:0}",
    "kind": [
@@ -178,7 +178,7 @@
    "details": "Changes the action number of the player's animation."
   },
   {
-   "trigger": "changeanim2",
+   "trigger": "ChangeAnim2",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, ChangeAnim2]\ntype=ChangeAnim2\n",
    "kind": [
@@ -189,7 +189,7 @@
    "details": "Like ChangeAnim, except this controller should be used if you have placed P2 in a custom state via a hit and wish to change P2's animation to one specified in P1's air file. For example, when making throws, use this to change P2 to a being-thrown animation."
   },
   {
-   "trigger": "changestate",
+   "trigger": "ChangeState",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, ChangeState]\ntype=ChangeState\nvalue=${2:0}\nctrl=${2:0}\nanim=${3:0}",
    "kind": [
@@ -197,10 +197,10 @@
     "s",
     "SCTRL"
    ],
-   "details": "Changes the state number of the player. Example:"
+   "details": "Changes the state number of the player."
   },
   {
-   "trigger": "clearclipboard",
+   "trigger": "ClearClipboard",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, ClearClipboard]\ntype=ClearClipboard\n",
    "kind": [
@@ -211,7 +211,7 @@
    "details": "Erases any text currently on the player's clipboard."
   },
   {
-   "trigger": "ctrlset",
+   "trigger": "CtrlSet",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, CtrlSet]\ntype=CtrlSet\nvalue=${2:0}",
    "kind": [
@@ -222,7 +222,7 @@
    "details": "Sets the player's control flag."
   },
   {
-   "trigger": "defencemulset",
+   "trigger": "DefenceMulSet",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, DefenceMulSet]\ntype=DefenceMulSet\nvalue=${2:0}",
    "kind": [
@@ -230,10 +230,10 @@
     "s",
     "SCTRL"
    ],
-   "details": "Sets the player's defense multiplier. All damage the player takes is scaled by this amount. Example:"
+   "details": "Sets the player's defense multiplier. All damage the player takes is scaled by this amount."
   },
   {
-   "trigger": "destroyself",
+   "trigger": "DestroySelf",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, DestroySelf]\ntype=DestroySelf\n",
    "kind": [
@@ -244,7 +244,7 @@
    "details": "If called by a helper-type character, DestroySelf causes that character to be removed from the field of play. DestroySelf is not valid for non-helper characters."
   },
   {
-   "trigger": "displaytoclipboard",
+   "trigger": "DisplayToClipboard",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, DisplayToClipboard]\ntype=DisplayToClipboard\n",
    "kind": [
@@ -252,10 +252,10 @@
     "s",
     "SCTRL"
    ],
-   "details": "This controller is only useful for debugging. DisplayToClipboard clears the player clipboard and prints a specified message to it. Display of the player clipboards is enabled in debug mode (press Ctrl+D). Example:"
+   "details": "This controller is only useful for debugging. DisplayToClipboard clears the player clipboard and prints a specified message to it. Display of the player clipboards is enabled in debug mode (press Ctrl+D)."
   },
   {
-   "trigger": "envcolor",
+   "trigger": "EnvColor",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, EnvColor]\ntype=EnvColor\nvalue=${2:0}\ntime=${3:0}\nunder=${4:0}",
    "kind": [
@@ -266,7 +266,7 @@
    "details": "Turns the whole screen a solid color, excepting foreground-layer animations like hit sparks and \"ontop\" explods. Foreground layers of the stage will not be visible."
   },
   {
-   "trigger": "envshake",
+   "trigger": "EnvShake",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, EnvShake]\ntype=EnvShake\ntime=${2:0}\nfreq=${2:0}\nampl=${3:0}\nphase=${4:0}",
    "kind": [
@@ -277,7 +277,7 @@
    "details": "Causes the screen to shake vertically."
   },
   {
-   "trigger": "explod",
+   "trigger": "Explod",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, Explod]\ntype=Explod\nanim=${2:0}\nID=${2:0}\npos=${3:0}, ${4:0}\npostype=${5:}\nfacing=${6:0}\nvfacing=${7:0}\nbindtime=${8:0}\nvel=${9:0}, ${10:0}\naccel=${11:0}, ${12:0}\nrandom=${13:0}, ${14:0}\nremovetime=${15:0}\nsupermove=${16:}\nsupermovetime=${17:0}\npausemovetime=${18:0}\nscale=${19:0}, ${20:0}\nsprpriority=${21:0}\nontop=${22:}\nshadow=${23:0}, ${24:0}, ${25:0}\nownpal=${26:}\nremoveongethit=${27:}\nignorehitpause=${28:}\ntrans=${29:}",
    "kind": [
@@ -288,7 +288,7 @@
    "details": "The Explod controller is a flexible tool for displaying animations such as sparks, dust and other visual effects. Its functionality includes that of GameMakeAnim, which is now deprecated."
   },
   {
-   "trigger": "explodbindtime",
+   "trigger": "ExplodBindTime",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, ExplodBindTime]\ntype=ExplodBindTime\nID=${2:0}\ntime=${3:0}",
    "kind": [
@@ -299,7 +299,7 @@
    "details": "Changes the position binding time of the player's explods."
   },
   {
-   "trigger": "forcefeedback",
+   "trigger": "ForceFeedback",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, ForceFeedback]\ntype=ForceFeedback\nwaveform=${2:}\ntime=${3:}\nfreq=${4:}\nampl=${5:}\nself=${6:}",
    "kind": [
@@ -310,7 +310,7 @@
    "details": "Creates force feedback for supported force feedback devices. This controller is not implemented in MUGEN 1.0. Parameters to the ForceFeedback controller may not be specified using arithmetic expressions. It is an exception in this regard."
   },
   {
-   "trigger": "fallenvshake",
+   "trigger": "FallEnvShake",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, FallEnvShake]\ntype=FallEnvShake\n",
    "kind": [
@@ -321,7 +321,7 @@
    "details": "Shakes the screen using the fall.envshake parameters set by an attack (see HitDef controller). This controller is effective only if GetHitVar(fall.envshake.time) is not zero, and it sets GetHitVar(fall.envshake.time) to zero after being executed. This controller is used in common1.cns to shake the screen when a player falls, and is not normally useful otherwise."
   },
   {
-   "trigger": "gamemakeanim",
+   "trigger": "GameMakeAnim",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, GameMakeAnim]\ntype=GameMakeAnim\nvalue=${2:0}\nunder=${3:0}\npos=${4:0}\nrandom=${5:0}",
    "kind": [
@@ -332,7 +332,7 @@
    "details": "Creates a game animation, like a hit spark or a super charging effect. This controller has been superseded by Explod and is now considered deprecated. Support for it may be removed in future versions."
   },
   {
-   "trigger": "gravity",
+   "trigger": "Gravity",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, Gravity]\ntype=Gravity\n",
    "kind": [
@@ -340,10 +340,10 @@
     "s",
     "SCTRL"
    ],
-   "details": "Accelerates the player downwards, using the value of the player's \"yaccel\" constant. Example:"
+   "details": "Accelerates the player downwards, using the value of the player's \"yaccel\" constant."
   },
   {
-   "trigger": "helper",
+   "trigger": "Helper",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, Helper]\ntype=Helper\nhelpertype=${2:}\nname=${3:}\nID=${4:0}\npos=${5:0}\npostype=${6:}\nfacing=${7:0}\nstateno=${8:0}\nkeyctrl=${9:}\nownpal=${10:}\nsupermovetime=${11:0}\npausemovetime=${12:0}\nsize.xscale=${13:0}\nsize.yscale=${14:0}\nsize.ground.back=${15:0}\nsize.ground.front=${16:0}\nsize.air.back=${17:0}\nsize.air.front=${18:0}\nsize.height=${19:0}\nsize.proj.doscale=${20:0}\nsize.head.pos=${21:0}, ${22:0}\nsize.mid.pos=${23:0}, ${24:0}\nsize.shadowoffset=${25:0}",
    "kind": [
@@ -354,7 +354,7 @@
    "details": "Creates another instance of the player as a helper character."
   },
   {
-   "trigger": "hitadd",
+   "trigger": "HitAdd",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, HitAdd]\ntype=HitAdd\nvalue=${2:0}",
    "kind": [
@@ -365,7 +365,7 @@
    "details": "Adds to the current combo counter."
   },
   {
-   "trigger": "hitby",
+   "trigger": "HitBy",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, HitBy]\ntype=HitBy\ntime=${2:0}",
    "kind": [
@@ -373,10 +373,10 @@
     "s",
     "SCTRL"
    ],
-   "details": "Temporarily specifies the types of hits that are be allowed hit to the player. Example:"
+   "details": "Temporarily specifies the types of hits that are be allowed hit to the player."
   },
   {
-   "trigger": "hitdef",
+   "trigger": "HitDef",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, HitDef]\ntype=HitDef\nattr=${2:}\nhitflag=${2:}\nguardflag=${3:}\naffectteam=${4:}\nanimtype=${5:}\nair.animtype=${6:}\nfall.animtype=${7:}\npriority=${8:}\ndamage=${9:0}, ${10:0}\npausetime=${11:0}, ${12:0}\nguard.pausetime=${13:0}, ${14:0}\nsparkno=${15:0}\nguard.sparkno=${16:0}\nsparkxy=${17:0}, ${18:0}\nhitsound=${19:0}, ${20:0}\nguardsound=${21:0}, ${22:0}\nground.type=${23:}\nair.type=${24:}\nground.slidetime=${25:0}\nguard.slidetime=${26:0}\nground.hittime=${27:0}\nguard.hittime=${28:0}\nair.hittime=${29:0}\nguard.ctrltime=${30:0}\nguard.dist=${31:0}\nyaccel=${32:0}\nground.velocity=${33:0}, ${34:0}\nguard.velocity=${35:0}\nair.velocity=${36:0}, ${37:0}\nairguard.velocity=${38:}\nground.cornerpush.veloff=${39:0}\nair.cornerpush.veloff=${40:0}\ndown.cornerpush.veloff=${41:0}\nguard.cornerpush.veloff=${42:0}\nairguard.cornerpush.veloff=${43:0}\nairguard.ctrltime=${44:0}\nair.juggle=${45:0}\nmindist=${46:0}, ${47:0}\nmaxdist=${48:0}, ${49:0}\nsnap=${50:0}, ${51:0}\np1sprpriority=${52:0}\np2sprpriority=${53:0}\np1facing=${54:0}\np1getp2facing=${55:0}\np2facing=${56:0}\np1stateno=${57:0}\np2stateno=${58:0}\np2getp1state=${59:}\nforcestand=${60:}\nfall=${61:}\nfall.xvelocity=${62:0}\nfall.yvelocity=${63:0}\nfall.recover=${64:}\nfall.recovertime=${65:0}\nfall.damage=${66:0}\nair.fall=${67:}\nforcenofall=${68:}\ndown.velocity=${69:0}, ${70:0}\ndown.hittime=${71:0}\ndown.bounce=${72:}\nid=${73:0}\nchainID=${74:0}\nnochainID=${75:0}\nhitonce=${76:}\nkill=${77:}\nguard.kill=${78:}\nfall.kill=${79:}\nnumhits=${80:0}\ngetpower=${81:0}, ${82:0}\ngivepower=${83:0}, ${84:0}\npalfx.time=${85:0}\npalfx.mul=${86:0}, ${87:0}, ${88:0}\npalfx.add=${89:0}, ${90:0}, ${91:0}\nenvshake.time=${92:0}\nenvshake.freq=${93:0}\nenvshake.ampl=${94:0}\nenvshake.phase=${95:0}\nfall.envshake.time=${96:0}\nfall.envshake.freq=${97:0}\nfall.envshake.ampl=${98:0}\nfall.envshake.phase=${99:0}",
    "kind": [
@@ -387,7 +387,7 @@
    "details": "Defines a single hit of the player's attack. If the player's Clsn1 box (red) comes in contact with his opponent's Clsn2 box (blue), and the HitDef was define on or before that particular point in time, then the specified effect will be applied. This is one of the more complex, but most commonly-used controllers.\nA single HitDef is valid only for a single hit. To make a move hit several times, you must trigger more than one HitDef during the attack."
   },
   {
-   "trigger": "hitfalldamage",
+   "trigger": "HitFallDamage",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, HitFallDamage]\ntype=HitFallDamage\n",
    "kind": [
@@ -398,7 +398,7 @@
    "details": "When the player has been hit and is in a falling state, apply damage\nfrom the fall (specified in the hitdef) to the player."
   },
   {
-   "trigger": "hitfallset",
+   "trigger": "HitFallSet",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, HitFallSet]\ntype=HitFallSet\nvalue=${2:0}\nxvel=${3:0}\nyvel=${4:0}",
    "kind": [
@@ -409,7 +409,7 @@
    "details": "When the player has been hit, sets the player's fall variables."
   },
   {
-   "trigger": "hitfallvel",
+   "trigger": "HitFallVel",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, HitFallVel]\ntype=HitFallVel\n",
    "kind": [
@@ -420,7 +420,7 @@
    "details": "If the player has been hit and is in a falling state, sets the player's velocities to the fall velocities (fall.xvel and fall.yvel) specified in the HitDef."
   },
   {
-   "trigger": "hitoverride",
+   "trigger": "HitOverride",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, HitOverride]\ntype=HitOverride\nattr=${2:}\nstateno=${3:0}\nslot=${2:0}\ntime=${3:0}\nforceair=${4:}",
    "kind": [
@@ -431,7 +431,7 @@
    "details": "Defines a hit override. If the player is hit by an attack of the specified type, he will go to the specified state number instead of his default gethit behavior. Up to 8 hit overrides can be active at one time."
   },
   {
-   "trigger": "hitvelset",
+   "trigger": "HitVelSet",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, HitVelSet]\ntype=HitVelSet\nx=${2:0}\ny=${3:0}",
    "kind": [
@@ -442,7 +442,7 @@
    "details": "This controller is deprecated. When the player has been hit, sets the desired components of the player's velocity to the appropriate gethit velocities."
   },
   {
-   "trigger": "lifeadd",
+   "trigger": "LifeAdd",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, LifeAdd]\ntype=LifeAdd\nvalue=${2:0}\nkill=${2:0}\nabsolute=${3:0}",
    "kind": [
@@ -453,7 +453,7 @@
    "details": "Adds the specified amount to the player's life, scaled by the player's defense multiplier if necessary."
   },
   {
-   "trigger": "lifeset",
+   "trigger": "LifeSet",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, LifeSet]\ntype=LifeSet\nvalue=${2:0}",
    "kind": [
@@ -464,7 +464,7 @@
    "details": "Sets the player's life to the specified value."
   },
   {
-   "trigger": "makedust",
+   "trigger": "MakeDust",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, MakeDust]\ntype=MakeDust\npos=${2:0}\npos2=${3:0}\nspacing=${4:0}",
    "kind": [
@@ -475,7 +475,7 @@
    "details": "This controller is deprecated; use the Explod controller. Creates dust effects."
   },
   {
-   "trigger": "modifyexplod",
+   "trigger": "ModifyExplod",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, ModifyExplod]\ntype=ModifyExplod\n",
    "kind": [
@@ -486,7 +486,7 @@
    "details": "Modifies the parameters of an existing Explod. Syntax is basically\nthe same as Explod. However, this controller is subject to future\nchange. Any code relying on this controller is not guaranteed to\nwork in the future."
   },
   {
-   "trigger": "movehitreset",
+   "trigger": "MoveHitReset",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, MoveHitReset]\ntype=MoveHitReset\n",
    "kind": [
@@ -497,7 +497,7 @@
    "details": "Resets the movehit flag to 0. That is, after executing MoveHitReset, the triggers MoveContact, MoveGuarded, and MoveHit will all return 0."
   },
   {
-   "trigger": "nothitby",
+   "trigger": "NotHitBy",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, NotHitBy]\ntype=NotHitBy\ntime=${2:0}",
    "kind": [
@@ -505,10 +505,10 @@
     "s",
     "SCTRL"
    ],
-   "details": "Temporarily specifies types of hits that are not allowed to hit the player. Example:"
+   "details": "Temporarily specifies types of hits that are not allowed to hit the player."
   },
   {
-   "trigger": "null",
+   "trigger": "Null",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, Null]\ntype=Null\n",
    "kind": [
@@ -519,7 +519,7 @@
    "details": "Does nothing. May be used for temporarily disabling other state controllers by simply changing their type to Null."
   },
   {
-   "trigger": "offset",
+   "trigger": "Offset",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, Offset]\ntype=Offset\nx=${2:0}\ny=${3:0}",
    "kind": [
@@ -530,7 +530,7 @@
    "details": "Changes the player's display offset. The player is drawn shifted from his axis by this amount."
   },
   {
-   "trigger": "palfx",
+   "trigger": "PalFX",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, PalFX]\ntype=PalFX\ntime=${2:0}\nadd=${3:0}, ${4:0}, ${5:0}\nmul=${6:0}, ${7:0}, ${8:0}\nsinadd=${9:0}, ${10:0}, ${11:0}, ${12:0}\ninvertall=${13:}\ncolor=${14:0}",
    "kind": [
@@ -541,7 +541,7 @@
    "details": "Applies temporary effects the player's palette. These will also affect the palette of any explods and helpers the player owns, unless they have specified ownpal = 1."
   },
   {
-   "trigger": "parentvaradd",
+   "trigger": "ParentVarAdd",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, ParentVarAdd]\ntype=ParentVarAdd\nv=${2:0}\nvalue=${3:0}\nfv=${2:0}\nvalue=${3:0}",
    "kind": [
@@ -552,7 +552,7 @@
    "details": "If the player is a helper, adds to one of the player's parent's working variables. Either a float variable or an int variable can be added to by this controller. If the player is not a helper, this controller does nothing."
   },
   {
-   "trigger": "parentvarset",
+   "trigger": "ParentVarSet",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, ParentVarSet]\ntype=ParentVarSet\nv=${2:0}\nvalue=${3:0}\nfv=${2:0}\nvalue=${3:0}",
    "kind": [
@@ -563,7 +563,7 @@
    "details": "If the player is a helper, sets one of the parent's working variables. Either a float variable or an int variable can be set by this controller. Does nothing if the player is not a helper."
   },
   {
-   "trigger": "pause",
+   "trigger": "Pause",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, Pause]\ntype=Pause\ntime=${2:0}\nendcmdbuftime=${2:0}\nmovetime=${3:0}\npausebg=${4:}",
    "kind": [
@@ -574,7 +574,7 @@
    "details": "Pauses the game for the specified amount of time. Player and background updates are not carried out during this time."
   },
   {
-   "trigger": "playerpush",
+   "trigger": "PlayerPush",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, PlayerPush]\ntype=PlayerPush\nvalue=${2:}",
    "kind": [
@@ -585,7 +585,7 @@
    "details": "Disables the player's push checking for one tick. Push checking keeps players from overlapping one another. By temporarily disabling push checking, dodge-type moves in which the player passes through another (but can still be hit) can be implemented."
   },
   {
-   "trigger": "playsnd",
+   "trigger": "PlaySnd",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, PlaySnd]\ntype=PlaySnd\nvalue=${2:0}, ${3:0}\nvolumescale=${2:0}\nchannel=${3:0}\nlowpriority=${4:0}\nfreqmul=${5:0}\nloop=${6:0}\npan=${7:0}\nabspan=${8:0}",
    "kind": [
@@ -593,10 +593,10 @@
     "s",
     "SCTRL"
    ],
-   "details": "Plays back a sound. Example: Notes:"
+   "details": "Plays back a sound.  Notes:"
   },
   {
-   "trigger": "posadd",
+   "trigger": "PosAdd",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, PosAdd]\ntype=PosAdd\nx=${2:0}\ny=${3:0}",
    "kind": [
@@ -607,7 +607,7 @@
    "details": "Offsets the player's position by the specified amounts. The X coordinate is relative to the player's axis, with positive values moving in the direction that the player is facing. The Y coordinate\nis relative to the player's axis, with negative values moving up."
   },
   {
-   "trigger": "posfreeze",
+   "trigger": "PosFreeze",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, PosFreeze]\ntype=PosFreeze\nvalue=${2:}",
    "kind": [
@@ -618,7 +618,7 @@
    "details": "Temporarily freezes the player's position."
   },
   {
-   "trigger": "posset",
+   "trigger": "PosSet",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, PosSet]\ntype=PosSet\nx=${2:0}\ny=${3:0}",
    "kind": [
@@ -629,7 +629,7 @@
    "details": "Sets the player's position to the specified coordinates. The X coordinate is relative to the center of the screen, with positive values moving right. The Y coordinate is relative to the floor, with negative values moving up."
   },
   {
-   "trigger": "poweradd",
+   "trigger": "PowerAdd",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, PowerAdd]\ntype=PowerAdd\nvalue=${2:0}",
    "kind": [
@@ -640,7 +640,7 @@
    "details": "Adds the specified amount to the player's power."
   },
   {
-   "trigger": "powerset",
+   "trigger": "PowerSet",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, PowerSet]\ntype=PowerSet\nvalue=${2:0}",
    "kind": [
@@ -651,7 +651,7 @@
    "details": "Sets the amount of power that the player has."
   },
   {
-   "trigger": "projectile",
+   "trigger": "Projectile",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, Projectile]\ntype=Projectile\nProjID=${2:0}\nprojanim=${3:0}\nprojhitanim=${4:0}\nprojremanim=${5:0}\nprojcancelanim=${6:0}\nprojscale=${7:0}, ${8:0}\nprojremove=${9:}\nprojremovetime=${10:0}\nvelocity=${11:0}, ${12:0}\nremvelocity=${13:0}, ${14:0}\naccel=${15:0}, ${16:0}\nvelmul=${17:0}, ${18:0}\nprojhits=${19:0}\nprojmisstime=${20:0}\nprojpriority=${21:0}\nprojsprpriority=${22:0}\nprojedgebound=${23:0}\nprojstagebound=${24:0}\nprojheightbound=${25:0}, ${26:0}\noffset=${27:0}, ${28:0}\npostype=${29:}\nprojshadow=${30:0}, ${31:0}, ${32:0}\nsupermovetime=${33:0}\npausemovetime=${34:0}\nafterimage.time=${35:0}",
    "kind": [
@@ -662,7 +662,7 @@
    "details": "Creates a projectile for the player. The Projectile controller takes all the parameters of the HitDef controller, which control the HitDef for the projectile. In addition, Projectile has the following additional parameters:"
   },
   {
-   "trigger": "remappal",
+   "trigger": "RemapPal",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, RemapPal]\ntype=RemapPal\n",
    "kind": [
@@ -670,10 +670,10 @@
     "s",
     "SCTRL"
    ],
-   "details": "Changes one of the player's palettes to another. Example:"
+   "details": "Changes one of the player's palettes to another."
   },
   {
-   "trigger": "removeexplod",
+   "trigger": "RemoveExplod",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, RemoveExplod]\ntype=RemoveExplod\nID=${2:0}",
    "kind": [
@@ -684,7 +684,7 @@
    "details": "Removes all of a player's explods, or just the explods with a specified ID number."
   },
   {
-   "trigger": "reversaldef",
+   "trigger": "ReversalDef",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, ReversalDef]\ntype=ReversalDef\n",
    "kind": [
@@ -695,7 +695,7 @@
    "details": "Defines a reversal. If one of P2's Clns1 boxes comes in contact with one of P1's Clsn1 boxes and a ReversalDef is active, then P1 will reverse P2's attack. Use with p1stateno (and optionally p2stateno) for creating reversal attacks. ReversalDefs take the HitDef parameters pausetime, sparkno, hitsound, p1stateno, and p2stateno, plus:"
   },
   {
-   "trigger": "screenbound",
+   "trigger": "ScreenBound",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, ScreenBound]\ntype=ScreenBound\nvalue=${2:}\nmovecamera=${3:}, ${4:}",
    "kind": [
@@ -706,7 +706,7 @@
    "details": "Specifies whether or not the player's movement should be constrained to the screen or not. Also determines whether the camera should move to follow the player or not. The results of this controller are valid for 1 tick."
   },
   {
-   "trigger": "selfstate",
+   "trigger": "SelfState",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, SelfState]\ntype=SelfState\n",
    "kind": [
@@ -717,7 +717,7 @@
    "details": "Like ChangeState, except that this changes a player back to a state in his own state data. Use this when you have placed an opponent player in a custom state via an attack, and wish to restore the opponent to his own states."
   },
   {
-   "trigger": "sprpriority",
+   "trigger": "SprPriority",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, SprPriority]\ntype=SprPriority\nvalue=${2:0}",
    "kind": [
@@ -728,7 +728,7 @@
    "details": "Changes the player's sprite priority. Higher-priority sprites are drawn on top of lower-priority sprites."
   },
   {
-   "trigger": "statetypeset",
+   "trigger": "StateTypeSet",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, StateTypeSet]\ntype=StateTypeSet\nstatetype=${2:}\nmovetype=${3:}\nphysics=${4:}",
    "kind": [
@@ -739,7 +739,7 @@
    "details": "Changes the current state type and move type. Useful for states that go from the ground into the air, etc."
   },
   {
-   "trigger": "sndpan",
+   "trigger": "SndPan",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, SndPan]\ntype=SndPan\nchannel=${2:0}\npan=${3:0}",
    "kind": [
@@ -750,7 +750,7 @@
    "details": "Changes the panning of a currently playing sound. This controller may be continually triggered to smoothly move a sound across the sound field or to have a sound follow the player."
   },
   {
-   "trigger": "stopsnd",
+   "trigger": "StopSnd",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, StopSnd]\ntype=StopSnd\nchannel=${2:0}",
    "kind": [
@@ -761,7 +761,7 @@
    "details": "Stops any sound which is playing on the specified channel."
   },
   {
-   "trigger": "superpause",
+   "trigger": "SuperPause",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, SuperPause]\ntype=SuperPause\ntime=${2:0}\nanim=${3:0}\nsound=${4:0}, ${5:0}\npos=${6:0}\ndarken=${7:}\np2defmul=${8:0}\npoweradd=${9:0}\nunhittable=${10:}",
    "kind": [
@@ -772,7 +772,7 @@
    "details": "Freezes the gameplay and darkens the screen. While each player is frozen, no time passes for them. Use for a dramatic pause during the start of hyper attacks."
   },
   {
-   "trigger": "targetbind",
+   "trigger": "TargetBind",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, TargetBind]\ntype=TargetBind\ntime=${2:0}\nID=${3:0}\npos=${4:0}",
    "kind": [
@@ -783,7 +783,7 @@
    "details": "Binds the player's specified targets to a specified location relative to the player's axis."
   },
   {
-   "trigger": "targetdrop",
+   "trigger": "TargetDrop",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, TargetDrop]\ntype=TargetDrop\nexcludeID=${2:0}\nkeepone=${3:}",
    "kind": [
@@ -794,7 +794,7 @@
    "details": "Drops all targets from the player's target list, except possibly for those having a specified target ID number. Useful for applying effects to only certain targets."
   },
   {
-   "trigger": "targetfacing",
+   "trigger": "TargetFacing",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, TargetFacing]\ntype=TargetFacing\nvalue=${2:0}\nID=${2:0}",
    "kind": [
@@ -805,7 +805,7 @@
    "details": "Turns all targets to face a specified direction relative to the player."
   },
   {
-   "trigger": "targetlifeadd",
+   "trigger": "TargetLifeAdd",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, TargetLifeAdd]\ntype=TargetLifeAdd\nvalue=${2:0}\nID=${2:0}\nkill=${3:}\nabsolute=${4:}",
    "kind": [
@@ -816,7 +816,7 @@
    "details": "Adds the specified amount to all targets' life, scaled by the targets' defense multipliers if necessary."
   },
   {
-   "trigger": "targetpoweradd",
+   "trigger": "TargetPowerAdd",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, TargetPowerAdd]\ntype=TargetPowerAdd\nvalue=${2:0}\nID=${2:0}",
    "kind": [
@@ -827,7 +827,7 @@
    "details": "Adds the specified amount to all targets' power."
   },
   {
-   "trigger": "targetstate",
+   "trigger": "TargetState",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, TargetState]\ntype=TargetState\nvalue=${2:0}\nID=${2:0}",
    "kind": [
@@ -838,7 +838,7 @@
    "details": "Makes all targets change to the specified state number."
   },
   {
-   "trigger": "targetveladd",
+   "trigger": "TargetVelAdd",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, TargetVelAdd]\ntype=TargetVelAdd\nx=${2:0}\ny=${3:0}\nID=${4:0}",
    "kind": [
@@ -846,10 +846,10 @@
     "s",
     "SCTRL"
    ],
-   "details": "Adds the specified amounts to all targets' velocities. A positive x velocity is in the direction that the target is facing, while a positive y velocity is downward on the screen. Example:"
+   "details": "Adds the specified amounts to all targets' velocities. A positive x velocity is in the direction that the target is facing, while a positive y velocity is downward on the screen."
   },
   {
-   "trigger": "targetvelset",
+   "trigger": "TargetVelSet",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, TargetVelSet]\ntype=TargetVelSet\nx=${2:0}\ny=${3:0}\nID=${4:0}",
    "kind": [
@@ -860,7 +860,7 @@
    "details": "Sets all targets' velocities to the specified values. A positive x velocity is in the direction that the player is facing, while a positive y velocity is downward on the screen."
   },
   {
-   "trigger": "trans",
+   "trigger": "Trans",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, Trans]\ntype=Trans\ntrans=${2:}\nalpha=${2:0}, ${3:0}",
    "kind": [
@@ -868,10 +868,10 @@
     "s",
     "SCTRL"
    ],
-   "details": "Overrides the player's animation transparency parameters for current game tick. Useful for special effects. Example:"
+   "details": "Overrides the player's animation transparency parameters for current game tick. Useful for special effects."
   },
   {
-   "trigger": "turn",
+   "trigger": "Turn",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, Turn]\ntype=Turn\n",
    "kind": [
@@ -882,7 +882,7 @@
    "details": "Instantly turns the player to face the opposite direction. Does not play a turning animation."
   },
   {
-   "trigger": "varadd",
+   "trigger": "VarAdd",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, VarAdd]\ntype=VarAdd\nv=${2:0}\nvalue=${3:0}\nfv=${2:0}\nvalue=${3:0}",
    "kind": [
@@ -893,7 +893,7 @@
    "details": "Adds to one of the player's working variables. Either a float variable or an int variable can be added to by this controller."
   },
   {
-   "trigger": "varrandom",
+   "trigger": "VarRandom",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, VarRandom]\ntype=VarRandom\nv=${2:0}\nrange=${2:0}",
    "kind": [
@@ -901,10 +901,10 @@
     "s",
     "SCTRL"
    ],
-   "details": "Sets the specified int variable to a random value. Float variables cannot be set by this controller. Example:"
+   "details": "Sets the specified int variable to a random value. Float variables cannot be set by this controller."
   },
   {
-   "trigger": "varrangeset",
+   "trigger": "VarRangeSet",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, VarRangeSet]\ntype=VarRangeSet\nvalue=${2:0}\nfvalue=${2:0}\nfirst=${2:0}\nlast=${3:0}",
    "kind": [
@@ -915,7 +915,7 @@
    "details": "Sets a contiguous range of the player's working variables to the same value. Either float variables or int variables can be set by this controller, but not both at the same time."
   },
   {
-   "trigger": "varset",
+   "trigger": "VarSet",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, VarSet]\ntype=VarSet\nv=${2:0}\nvalue=${3:0}\nfv=${2:0}\nvalue=${3:0}",
    "kind": [
@@ -926,7 +926,7 @@
    "details": "Sets one of the player's working variables. Either a float variable or an int variable can be set by this controller, but not both at the same time."
   },
   {
-   "trigger": "veladd",
+   "trigger": "VelAdd",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, VelAdd]\ntype=VelAdd\nx=${2:0}\ny=${3:0}",
    "kind": [
@@ -934,10 +934,10 @@
     "s",
     "SCTRL"
    ],
-   "details": "Adds the specified amounts to the player's velocity. A positive x velocity is in the direction that the player is facing, while a positive y velocity is downward on the screen. Example:"
+   "details": "Adds the specified amounts to the player's velocity. A positive x velocity is in the direction that the player is facing, while a positive y velocity is downward on the screen."
   },
   {
-   "trigger": "velmul",
+   "trigger": "VelMul",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, VelMul]\ntype=VelMul\nx=${2:0}\ny=${3:0}",
    "kind": [
@@ -945,10 +945,10 @@
     "s",
     "SCTRL"
    ],
-   "details": "Multiplies the player's velocity by the specified amounts. A positive x velocity is in the direction that the player is facing, while a positive y velocity is downward on the screen. Example:"
+   "details": "Multiplies the player's velocity by the specified amounts. A positive x velocity is in the direction that the player is facing, while a positive y velocity is downward on the screen."
   },
   {
-   "trigger": "velset",
+   "trigger": "VelSet",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, VelSet]\ntype=VelSet\nx=${2:0}\ny=${3:0}",
    "kind": [
@@ -959,7 +959,7 @@
    "details": "Sets the player's velocity to the specified values. A positive x velocity is in the direction that the player is facing, while a positive y velocity is downward on the screen."
   },
   {
-   "trigger": "victoryquote",
+   "trigger": "VictoryQuote",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, VictoryQuote]\ntype=VictoryQuote\nvalue=${2:0}",
    "kind": [
@@ -970,7 +970,7 @@
    "details": "Selects a victory quote from the player to display in the next victory screen."
   },
   {
-   "trigger": "width",
+   "trigger": "Width",
    "annotation": "sctrl",
    "contents": "[State ${1:-1}, Width]\ntype=Width\nedge=${2:0}, ${3:0}\nplayer=${4:0}, ${5:0}",
    "kind": [
