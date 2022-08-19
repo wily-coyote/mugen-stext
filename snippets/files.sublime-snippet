@@ -10,6 +10,6 @@ st=${7:kfm.cns}
 pal1=
 ]]></content>
 	<tabTrigger>files</tabTrigger>
-	<description>Files</description>
+	<description>def header</description>
 	<scope>source.cns</scope>
 </snippet>

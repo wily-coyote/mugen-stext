@@ -4,6 +4,6 @@ intro.storyboard=${1:intro.def}
 ending.storyboard=${2:ending.def}
 ]]></content>
 	<tabTrigger>arcade</tabTrigger>
-	<description>Arcade</description>
+	<description>def header</description>
 	<scope>source.cns</scope>
 </snippet>

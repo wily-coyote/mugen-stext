@@ -10,6 +10,6 @@ type=ChangeState
 trigger1=AnimTime=-10
 value=0]]></content>
 	<tabTrigger>intro</tabTrigger>
-	<description>Intro</description>
+	<description>statedef</description>
 	<scope>source.cns</scope>
 </snippet>

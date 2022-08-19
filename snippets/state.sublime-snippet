@@ -3,6 +3,6 @@
 type=${3:}
 trigger1=]]></content>
 	<tabTrigger>state</tabTrigger>
-	<description>Generic state</description>
+	<description>state</description>
 	<scope>source.cns</scope>
 </snippet>

@@ -4,6 +4,6 @@ command.time=${1:}
 command.buffer.time=
 ]]></content>
 	<tabTrigger>cmddefaults</tabTrigger>
-	<description>Command defaults</description>
+	<description>cmd block</description>
 	<scope>source.cns</scope>
 </snippet>

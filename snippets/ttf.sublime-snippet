@@ -12,6 +12,6 @@ Offset=0,0
 File=${3:file.ttc}
 Blend=1]]></content>
 	<tabTrigger>ttf</tabTrigger>
-	<description>TrueType font</description>
+	<description>truetype fnt</description>
 	<scope>source.cns</scope>
 </snippet>

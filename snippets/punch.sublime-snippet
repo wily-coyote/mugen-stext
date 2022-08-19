@@ -39,6 +39,6 @@ trigger1=AnimTime=0
 value=11
 ctrl=1]]></content>
 	<tabTrigger>punch</tabTrigger>
-	<description>Punch</description>
+	<description>statedef</description>
 	<scope>source.cns</scope>
 </snippet>

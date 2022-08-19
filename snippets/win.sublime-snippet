@@ -14,6 +14,6 @@ trigger1=1
 value=SCA
 time=1]]></content>
 	<tabTrigger>win</tabTrigger>
-	<description>Win</description>
+	<description>statedef</description>
 	<scope>source.cns</scope>
 </snippet>

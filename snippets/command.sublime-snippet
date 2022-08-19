@@ -5,6 +5,6 @@ command=${2:}
 time=
 ]]></content>
 	<tabTrigger>cmd</tabTrigger>
-	<description>Command</description>
+	<description>command</description>
 	<scope>source.cns</scope>
 </snippet>

@@ -8,6 +8,6 @@ b=b
 c=c
 s=s]]></content>
 	<tabTrigger>remap</tabTrigger>
-	<description>Button remapping</description>
+	<description>cmd</description>
 	<scope>source.cns</scope>
 </snippet>

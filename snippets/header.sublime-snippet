@@ -4,6 +4,6 @@
 ;--------------------------------------------------
 ]]></content>
 	<tabTrigger>header</tabTrigger>
-	<description>Header (comment)</description>
+	<description>comment</description>
 	<scope>source.cns</scope>
 </snippet>
