@@ -62,7 +62,7 @@ contexts:
           pop: true
 
   numbers:
-    - match: '-?\.?\b[0-9.]+\b'
+    - match: '\.?\b[0-9]+\b'
       scope: constant.numeric.cns
 
   strings:
