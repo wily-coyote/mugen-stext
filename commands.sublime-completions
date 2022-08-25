@@ -1,0 +1,60 @@
+{
+	"scope": "source.cns",
+	"completions": [
+		{ 
+			"trigger": "qcf",
+			"details": "Quarter circle forward",
+			"annotation": "command",
+		   	"kind": [
+		    	"snippet",
+		    	"s",
+		    	"Command"
+		   	],
+			"contents": "[Command]\nname=\"QCF\"\ncommand=~D,DF,F"
+		},
+		{ 
+			"trigger": "qcb",
+			"details": "Quarter circle backward",
+			"annotation": "command",
+		   	"kind": [
+		    	"snippet",
+		    	"s",
+		    	"Command"
+		   	],
+			"contents": "[Command]\nname=\"QCB\"\ncommand=~D,DB,B"
+		},
+		{ 
+			"trigger": "hcf",
+			"details": "Half circle forward",
+			"annotation": "command",
+		   	"kind": [
+		    	"snippet",
+		    	"s",
+		    	"Command"
+		   	],
+			"contents": "[Command]\nname=\"HCF\"\ncommand=~B,DB,D,DF,F"
+		},
+		{ 
+			"trigger": "hcb",
+			"details": "Half circle backward",
+			"annotation": "command",
+		   	"kind": [
+		    	"snippet",
+		    	"s",
+		    	"Command"
+		   	],
+			"contents": "[Command]\nname=\"HCB\"\ncommand=~F,DF,D,DB,B"
+		},
+		{ 
+			"trigger": "dp",
+			"details": "Dragon punch",
+			"annotation": "command",
+		   	"kind": [
+		    	"snippet",
+		    	"s",
+		    	"Command"
+		   	],
+			"contents": "[Command]\nname=\"DP\"\ncommand=~F,D,DF"
+		}
+	]
+}

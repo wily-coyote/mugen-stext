@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[[Command]
+name="CD"
+command=~60\$D,U]]></content>
+	<tabTrigger>cd</tabTrigger>
+	<description>command</description>
+	<scope>source.cns</scope>
+</snippet>
