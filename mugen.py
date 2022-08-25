@@ -12,7 +12,11 @@ class MugenCommand(command.BaseCommand):
 	def get_cli(self, shtuff):
 		vars = self.window.extract_variables()
 		settings = sublime.load_settings("MUGEN.sublime-settings")
-		mugen = settings.get("mugen_path", "")
+		mugen = settings.get("ikemen_path", "") if shtuff.get("ikemen", False) is True else settings.get("mugen_path", "")
+		if len(mugen) <= 0:
+			sublime.error_message("Please tell me where {} is and run the build again.".format("IKEMEN" if shtuff.get("ikemen", False) is True else "MUGEN"))
+			self.window.open_file("{}/MUGEN.sublime-settings".format(os.path.join(sublime.packages_path(), "User")))
+			return
 		for x in ["char1", "char2", "motif", "stage"]:
 			if shtuff[x] == "${file_base_name}":
 				shtuff[x] = vars["file_base_name"]
@@ -25,11 +29,6 @@ class MugenCommand(command.BaseCommand):
 						shtuff[x] = os.path.splitext(os.path.basename(deffile["Output"]["filename"]))[0]
 					else:
 						shtuff[x] = vars["file_base_name"]
-		if len(mugen) <= 0:
-			sublime.error_message("Please tell me where MUGEN is and run the build again.")
-			self.window.open_file("{}/MUGEN/MUGEN.sublime-settings".format(sublime.packages_path()))
-			sublime.save_settings("MUGEN.sublime-settings")
-			return
 		args = [mugen]
 		if len(shtuff["char1"]) > 0 or len(shtuff["char2"]) > 0:
 			args.append(shtuff["char1"])

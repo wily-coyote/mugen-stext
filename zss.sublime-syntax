@@ -1,0 +1,134 @@
+%YAML 1.2
+---
+name: Zantei State Script
+file_extensions:
+  - zss
+scope: source.zss
+
+contexts:
+  prototype:
+    - include: comments
+
+  main:
+    - include: function_declaration
+    - include: sections
+    - include: keywords
+    - include: operators
+    - include: functions
+    - include: numbers
+    - include: strings
+
+  sections:
+    - include: numbers
+    - match: '^\s*\['
+      scope: punctuation.section.group.begin.zss
+      push:
+        - meta_scope: keyword.context.block.zss
+        - include: numbers
+        - match: '([a-zA-Z0-9-_]+)\s*:'
+          captures:
+            1: string.unquoted.zss
+          push:
+            - clear_scopes: 1
+            - include: functions
+            - include: numbers
+            - match: ;
+              scope: keyword.control.block.zss
+              pop: true
+        - include: functions
+        - match: '\]'
+          scope: punctuation.section.group.end.zss
+          pop: true
+
+  keywords:
+    - match: '\b(if|else|for|while|let|call)\b'
+      scope: keyword.control.zss
+
+  variables:
+    - match: '\$[a-zA-Z0-9-_]+'
+      scope: variable.other.zss
+
+  function_declaration:
+    - include: numbers
+    - match: '(?i)^\s*\[function'
+      scope: punctuation.section.group.begin.zss
+      push:
+        - meta_scope: keyword.context.block.zss
+        - include: numbers
+        - match: '([a-zA-Z0-9_-]+)\s*(\()'
+          captures:
+            1: entity.name.function.zss
+            2: punctuation.section.group.begin.zss
+          push:
+            - clear_scopes: 1
+            - match: '[a-zA-Z0-9-_]+'
+              scope: variable.parameter.zss
+            - match: '\)'
+              scope: punctuation.section.group.end.zss
+              pop: true
+        - match: '[\]\n]'
+          scope: punctuation.section.group.end.zss
+          pop: true
+
+  operators:
+    - match: '[+\-*/%!&|^~=<>]|:='
+      scope: keyword.operator.zss
+
+  numbers:
+    - match: '\.?\b[0-9]+\b'
+      scope: constant.numeric.zss
+
+  functions:
+    - match: '([a-zA-Z0-9_]+)\s*(\()'
+      captures:
+        1: variable.function.zss
+        2: punctuation.section.group.begin.zss
+      push:
+        - clear_scopes: 1
+        - include: main
+        - match: \)
+          scope: punctuation.section.group.end.zss
+          pop: true
+    - match: '([a-zA-Z0-9_]+)\s*({)'
+      captures:
+        1: variable.function.zss
+        2: punctuation.section.group.begin.zss
+      push:
+        - include: main
+        - match: '([a-zA-Z0-9-_.]+)\s*:'
+          captures:
+            1: string.unquoted.zss
+        - match: \}
+          scope: punctuation.section.group.end.zss
+          pop: true
+
+  strings:
+    - match: '"'
+      scope: punctuation.definition.string.begin.zss
+      push:
+        - meta_scope: string.quoted.double.zss
+        - match: '"'
+          scope: punctuation.definition.string.end.zss
+          pop: true
+        - match: \n
+          scope: invalid.illegal.zss
+          pop: true
+    - match: \'
+      scope: punctuation.definition.string.begin.zss
+      push:
+        - meta_scope: string.quoted.single.zss
+        - match: \'
+          scope: punctuation.definition.string.end.zss
+          pop: true
+        - match: \n
+          scope: invalid.illegal.zss
+          pop: true
+
+  comments:
+    - match: '#'
+      scope: punctuation.definition.comment.zss
+      push:
+        # This is an anonymous context push for brevity.
+        - meta_scope: comment.line.double-slash.zss
+        - match: $\n?
+          pop: true

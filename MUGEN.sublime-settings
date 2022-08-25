@@ -1,3 +1,10 @@
 {
+	// Path to your MUGEN executable. Also used to locate sprmake2 and sndmaker.
 	"mugen_path": "C:\\path\\to\\mugen.exe",
+
+	// Run build tools in the file's directory rather than in `mugen_path`.
+	"build_use_parent": false,
+
+	// Path to your IKEMEN executable.
+	"ikemen_path": "C:\\path\\to\\ikemen.exe",
 }

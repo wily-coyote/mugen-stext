@@ -12,10 +12,14 @@ class Sprmake2Command(command.BaseCommand):
 		"""Get working directory and command line"""
 		settings = sublime.load_settings("MUGEN.sublime-settings")
 		mugen = settings.get("mugen_path", "")
+		build_use_parent = settings.get("build_use_parent", False)
 		vars = self.window.extract_variables()
 		if len(mugen) <= 0:
 			sublime.error_message("Please tell me where MUGEN is and run sprmake2 again.")
 			self.window.open_file("{}/MUGEN/MUGEN.sublime-settings".format(sublime.packages_path()))
 			return None
 		mugen = os.path.split(mugen)[0]
-		return mugen, [os.path.join(mugen, "sprmake2"), vars["file"]]
+		run_in = mugen
+		if build_use_parent is True:
+			run_in = vars["file_path"]
+		return run_in, [os.path.join(mugen, "sprmake2"), vars["file"]]

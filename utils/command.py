@@ -11,7 +11,7 @@ class BaseCommand(sublime_plugin.WindowCommand):
 	proc = None
 	panel = None
 	panel_lock = threading.Lock()
-	def run(self, name=None, char1="", char2="", motif="", stage=""):
+	def run(self, name=None, char1="", char2="", motif="", stage="", ikemen=False):
 		runs = locals()
 		
 		working_dir, argv = self.get_cli(runs)
@@ -48,7 +48,7 @@ class BaseCommand(sublime_plugin.WindowCommand):
 		vars = self.window.extract_variables()
 		if len(mugen) <= 0:
 			sublime.error_message("Please tell me where MUGEN is and run the build again.")
-			self.window.open_file("{}/MUGEN/MUGEN.sublime-settings".format(sublime.packages_path()))
+			self.window.open_file("{}/MUGEN.sublime-settings".format(os.path.join(sublime.packages_path(), "User")))
 			sublime.save_settings("MUGEN.sublime-settings")
 			return None
 		args = [mugen]
