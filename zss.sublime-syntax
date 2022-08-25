@@ -12,6 +12,7 @@ contexts:
   main:
     - include: function_declaration
     - include: sections
+    - include: variables
     - include: keywords
     - include: operators
     - include: functions
