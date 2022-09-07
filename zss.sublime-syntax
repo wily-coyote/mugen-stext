@@ -72,7 +72,7 @@ contexts:
           pop: true
 
   operators:
-    - match: '[+\-*/%!&|^~=<>]|:='
+    - match: '[+\-*/%!&|^~=<>]{1,2}'
       scope: keyword.operator.zss
 
   numbers:

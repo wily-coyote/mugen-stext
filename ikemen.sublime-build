@@ -1,29 +1,29 @@
 {
 	"name": "Run IKEMEN",
 	"target": "mugen",
-	"selector": "source.cns, source.air, source.zss",
+	"selector": "source.cns, source.air, source.zss, source.cfg",
 	"ikemen": true,
 	"variants":
 	[
 		{
 			"name": "Current character vs current character",
-			"char1": "${file_base_name}",
-			"char2": "${file_base_name}"
+			"char1": "${def_input}",
+			"char2": "${def_input}"
 		},
 		{
 			"name": "Current character vs KFM",
-			"char1": "${file_base_name}",
-			"char2": "kfm"
+			"char1": "${def_input}",
+			"char2": "${kfm}"
 		},
 		{
 			"name": "KFM vs current character",
-			"char1": "kfm",
-			"char2": "${file_base_name}"
+			"char1": "${kfm}",
+			"char2": "${def_input}"
 		},
 		{
 			"name": "Stage",
-			"char1": "kfm",
-			"char2": "kfm",
+			"char1": "${kfm}",
+			"char2": "${kfm}",
 			"stage": "${def_output}"
 		}
 	]

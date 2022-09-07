@@ -17,6 +17,12 @@ Just `git clone` it to the Packages folder. I can't be bothered to host it on pa
 
 ### Changelog
 
+#### 06-09-2022 - 1.3.0
+- Add support for subfolders in chars/
+- Output window tells execution time when finished
+- Adjustable KFM config
+- IKEMEN: Refine ZSS operator detection
+
 #### 25-08-2022 - 1.2.0
 - IKEMEN: Add ZSS syntax highlighting
 - IKEMEN: Add build targets

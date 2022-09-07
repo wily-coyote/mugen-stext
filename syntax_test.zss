@@ -1,0 +1,50 @@
+# SYNTAX TEST "Packages/MUGEN/zss.sublime-syntax"
+
+[function name(arguments)]
+#^^^^^^^^^ keyword.context.block.zss
+#^^^^^^^^ punctuation.section.group.begin.zss
+#         ^^^^ entity.name.function.zss
+#             ^ punctuation.section.group.begin.zss
+#              ^^^^^^^^^ variable.parameter.zss
+#                       ^ punctuation.section.group.end.zss
+#                        ^ keyword.context.block.zss punctuation.section.group.end.zss
+
+
+[statedef 800; type: S; movetype: U; anim: const(value);]
+#^^^^^^^^^^^^^^ keyword.context.block.zss
+#         ^^^ constant.numeric.zss
+#              ^^^^ string.unquoted.zss
+#                     ^ keyword.control.block.zss
+#                      ^ keyword.context.block.zss
+#                       ^^^^^^^^ string.unquoted.zss
+#                                  ^ keyword.control.block.zss
+#                                   ^ keyword.context.block.zss
+#                                    ^^^^ string.unquoted.zss
+#                                                      ^ keyword.control.block.zss
+#                                                       ^ keyword.context.block.zss punctuation.section.group.end.zss
+
+[statedef 0;
+type: S;
+physics: S;
+sprpriority: 0;
+]
+
+if time = 0 {
+#^ keyword.control.zss
+#       ^ keyword.operator.zss
+#         ^ constant.numeric.zss
+	posadd{x: 10, y: 10}
+#^^^^^^ variable.function.zss
+#      ^ punctuation.section.group.begin.zss
+#       ^ string.unquoted.zss
+#          ^^ constant.numeric.zss
+#              ^ string.unquoted.zss
+#                 ^^ constant.numeric.zss
+#                   ^ punctuation.section.group.end.zss
+} else {
+# ^^^^ keyword.control.zss
+	turn{}
+#^^^^ variable.function.zss
+#    ^ punctuation.section.group.begin.zss
+#     ^ punctuation.section.group.end.zss
+}

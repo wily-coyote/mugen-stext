@@ -7,4 +7,7 @@
 
 	// Path to your IKEMEN executable.
 	"ikemen_path": "C:\\path\\to\\ikemen.exe",
+
+	// Path to KFM's .def file.
+	"kfm_path": "kfm",
 }

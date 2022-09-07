@@ -4,14 +4,17 @@ import sublime_plugin
 import subprocess
 import threading
 import os
+import time
 
 class BaseCommand(sublime_plugin.WindowCommand):
+	start = 0
 	encoding = "utf-8"
 	killed = False
 	proc = None
 	panel = None
 	panel_lock = threading.Lock()
 	def run(self, name=None, char1="", char2="", motif="", stage="", ikemen=False):
+		self.start = time.time()
 		runs = locals()
 		
 		working_dir, argv = self.get_cli(runs)
@@ -71,15 +74,20 @@ class BaseCommand(sublime_plugin.WindowCommand):
 				if len(data) == chunk_size:
 					continue
 				if data == b'' and out == b'':
-					raise IOError('EOF')
+					self.done()
+					break
 				self.queue_write(out.decode(self.encoding))
 				if data == b'':
-					raise IOError('EOF')
+					self.done()
+					break
 				out = b''
 			except (UnicodeDecodeError) as e:
 				msg = 'Error decoding output using %s - %s'
 				self.queue_write(msg  % (self.encoding, str(e)))
 				break
+
+	def done(self):
+		return self.queue_write("<Done ({}s)>".format(round(time.time()-self.start,2)))
 
 	def queue_write(self, text):
 		sublime.set_timeout(lambda: self.do_write(text), 1)

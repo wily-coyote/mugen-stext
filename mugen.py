@@ -13,6 +13,7 @@ class MugenCommand(command.BaseCommand):
 		vars = self.window.extract_variables()
 		settings = sublime.load_settings("MUGEN.sublime-settings")
 		mugen = settings.get("ikemen_path", "") if shtuff.get("ikemen", False) is True else settings.get("mugen_path", "")
+		kfm = settings.get("kfm_path", "kfm")
 		if len(mugen) <= 0:
 			sublime.error_message("Please tell me where {} is and run the build again.".format("IKEMEN" if shtuff.get("ikemen", False) is True else "MUGEN"))
 			self.window.open_file("{}/MUGEN.sublime-settings".format(os.path.join(sublime.packages_path(), "User")))
@@ -20,8 +21,11 @@ class MugenCommand(command.BaseCommand):
 		for x in ["char1", "char2", "motif", "stage"]:
 			if shtuff[x] == "${file_base_name}":
 				shtuff[x] = vars["file_base_name"]
+			if shtuff[x] == "${def_input}":
+				shtuff[x] = (os.path.splitext(os.path.relpath(vars["file"], os.path.join(os.path.dirname(mugen), "chars")))[0].replace("\\", "/"))+".def"
+			if shtuff[x] == "${kfm}":
+				shtuff[x] = kfm
 			if shtuff[x] == "${def_output}":
-				print("fard")
 				with open(vars["file"], "r") as file:
 					deffile = def_reader.read(file)
 					print(deffile)
