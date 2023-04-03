@@ -47,10 +47,13 @@ class BaseCommand(sublime_plugin.WindowCommand):
 		"""Get working directory and command line"""
 		sublime.save_settings("MUGEN.sublime-settings")
 		settings = sublime.load_settings("MUGEN.sublime-settings")
-		mugen = settings.get("mugen_path", "")
 		vars = self.window.extract_variables()
+		bah = ("mugen_path", "MUGEN")
+		if vars["ikemen"] is True:
+			bah = ("ikemen_path", "IKEMEN")
+		mugen = settings.get(bah[0], "")
 		if len(mugen) <= 0:
-			sublime.error_message("Please tell me where MUGEN is and run the build again.")
+			sublime.error_message("Please tell me where {} is and run the build again.".format(bah[1]))
 			self.window.open_file("{}/MUGEN.sublime-settings".format(os.path.join(sublime.packages_path(), "User")))
 			sublime.save_settings("MUGEN.sublime-settings")
 			return None
