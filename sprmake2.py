@@ -22,4 +22,4 @@ class Sprmake2Command(command.BaseCommand):
 		run_in = mugen
 		if build_use_parent is True:
 			run_in = vars["file_path"]
-		return run_in, [os.path.join(mugen, "sprmake2"), vars["file"]]
+		return run_in, [os.path.join(mugen, "sprmake2"), "-c", "-f", "-p", vars["file"]]

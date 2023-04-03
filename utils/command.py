@@ -87,7 +87,7 @@ class BaseCommand(sublime_plugin.WindowCommand):
 				break
 
 	def done(self):
-		return self.queue_write("<Done ({}s)>".format(round(time.time()-self.start,2)))
+		return self.queue_write("\n<Done ({}s)>".format(round(time.time()-self.start,2)))
 
 	def queue_write(self, text):
 		sublime.set_timeout(lambda: self.do_write(text), 1)

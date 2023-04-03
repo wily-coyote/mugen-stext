@@ -22,7 +22,10 @@ class MugenCommand(command.BaseCommand):
 			if shtuff[x] == "${file_base_name}":
 				shtuff[x] = vars["file_base_name"]
 			if shtuff[x] == "${def_input}":
-				shtuff[x] = (os.path.splitext(os.path.relpath(vars["file"], os.path.join(os.path.dirname(mugen), "chars")))[0].replace("\\", "/"))+".def"
+				thing = "chars"
+				if x == "stage":
+					thing = "stages"
+				shtuff[x] = (os.path.splitext(os.path.relpath(vars["file"], os.path.join(os.path.dirname(mugen), thing)))[0].replace("\\", "/"))+".def"
 			if shtuff[x] == "${kfm}":
 				shtuff[x] = kfm
 			if shtuff[x] == "${def_output}":
@@ -32,7 +35,10 @@ class MugenCommand(command.BaseCommand):
 					if ("Output" in deffile) and ("filename" in deffile["Output"]):
 						shtuff[x] = os.path.splitext(os.path.basename(deffile["Output"]["filename"]))[0]
 					else:
-						shtuff[x] = vars["file_base_name"]
+						thing = "chars"
+						if x == "stage":
+							thing = "stages"
+						shtuff[x] = (os.path.splitext(os.path.relpath(vars["file"], os.path.join(os.path.dirname(mugen), thing)))[0].replace("\\", "/"))
 		args = [mugen]
 		if len(shtuff["char1"]) > 0 or len(shtuff["char2"]) > 0:
 			args.append(shtuff["char1"])

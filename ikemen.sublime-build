@@ -1,7 +1,7 @@
 {
 	"name": "Run IKEMEN",
 	"target": "mugen",
-	"selector": "source.cns, source.air, source.zss, source.cfg",
+	"selector": "source.cns, source.air, source.zss, source.json, source.lua",
 	"ikemen": true,
 	"variants":
 	[
