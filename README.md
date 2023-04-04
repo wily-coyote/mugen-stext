@@ -22,7 +22,7 @@ Just `git clone` it to the Packages folder. I can't be bothered to host it on pa
 - Make base command class check `ikemen_path` if needed
 - Move hovers and auto completions to Python
 - Reordered changelog lists
-- Add "Normalize" command for CNS, which removes comments, extra spaces and extra newlines.
+- Add "Normalize" command for CNS, which removes comments, extra spaces and extra newlines
 - IKEMEN: Ability to run IKEMEN from Lua files
 - IKEMEN: Add hovers and autocomplete for IKEMEN features
 
