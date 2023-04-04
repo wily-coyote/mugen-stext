@@ -27,6 +27,7 @@ contexts:
       scope: punctuation.section.group.begin.cns
       push:
         - meta_scope: keyword.context.block.cns
+        - meta_content_scope: entity.name.section.cns
         - include: numbers
         - match: '[\]\n]'
           scope: punctuation.section.group.end.cns
