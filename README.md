@@ -17,11 +17,12 @@ Just `git clone` it to the Packages folder. I can't be bothered to host it on pa
 
 ### Changelog
 
-#### 02-04-2023 - 2.0.0
+#### 04-04-2023 - 2.0.0
 - Add `-c`, `-f`, `-p` to sprmake2 build target
 - Make base command class check `ikemen_path` if needed
 - Move hovers and auto completions to Python
 - Reordered changelog lists
+- Add "Normalize" command for CNS, which removes comments, extra spaces and extra newlines.
 - IKEMEN: Ability to run IKEMEN from Lua files
 - IKEMEN: Add hovers and autocomplete for IKEMEN features
 

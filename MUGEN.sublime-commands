@@ -1,0 +1,10 @@
+[
+  {
+  	"caption": "CNS: Normalize selection",
+  	"command": "normalize_cns"
+  },
+  {
+  	"caption": "CNS: Normalize entire document",
+  	"command": "normalize_all_cns"
+  }
+]
