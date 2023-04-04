@@ -5,8 +5,13 @@ def getpath(bah):
 
 data = {}
 
-with open(getpath("mugen-sctrl.json"), "r") as file:
-	data["mugen-sctrl"] = json.load(file)
+jsons = [
+	"mugen-sctrl",
+	"mugen-trigger",
+	"ikemen-sctrl",
+	"ikemen-trigger"
+]
 
-with open(getpath("mugen-trigger.json"), "r") as file:
-	data["mugen-trigger"] = json.load(file)
+for path in jsons:
+	with open(getpath(path+".json"), "r") as file:
+		data[path] = json.load(file)
