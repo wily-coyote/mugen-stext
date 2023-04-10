@@ -77,7 +77,7 @@ class CNSCompletions(sublime_plugin.EventListener):
 					if is_zss:
 						content = key+"{{{}}}".format(";".join(["{}: ".format(x) for x in completed["req"]]))
 					else:
-						content = key+"\n"+"\n".join(["{}=".format(x) for x in  completed["req"]])+"\n"+"\n".join(["; {}=".format(x) for x in  completed["opt"]])
+						content = key+"\n"+"\n".join(["{}=".format(x) for x in ["trigger1"] + completed["req"]])+"\n"+"\n".join(["; {}=".format(x) for x in completed["opt"]])
 					item = sublime.CompletionItem(
 						key,
 						"sctrl",
