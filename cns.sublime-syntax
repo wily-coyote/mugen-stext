@@ -6,7 +6,11 @@ file_extensions:
   - def
   - cns
   - cmd
+  - st
 scope: source.cns
+
+variables:
+  identifier: '[a-zA-Z][a-zA-Z0-9\_\.\-]*'
 
 contexts:
   prototype:
@@ -14,8 +18,10 @@ contexts:
 
   main:
     - include: sections
-    - include: type
     - include: keyvalue
+    - include: trigger
+
+  trigger:
     - include: functions
     - include: operators
     - include: numbers
@@ -23,7 +29,7 @@ contexts:
 
   sections:
     - include: numbers
-    - match: '\s*\['
+    - match: '^\s*\['
       scope: punctuation.section.group.begin.cns
       push:
         - meta_scope: keyword.context.block.cns
@@ -39,31 +45,39 @@ contexts:
         1: meta.mapping.key.cns string.other.cns
         2: keyword.operator.assignment.cns punctuation.separator.mapping.key-value.cns
 
-  type:
-    - match: '(?i)\b(type)\b\s*(=)\s*(.*?)(?:$|(?=\s*;))'
-      captures:
-        1: meta.mapping.key.cns string.other.cns
-        2: keyword.operator.assignment.cns punctuation.separator.mapping.key-value.cns
-        3: variable.function.cns
-
   operators:
-    - match: '(?:!|~|-|\*\*|\*|/|%|\+|>|>=|<|<=|=|!=|:=|&|\^|\||&&|\^\^|\|\|)'
+    - match: '(!|~|-|\*\*|\*|/|%|\+|>|>=|<|<=|=|!=|:=|&|\^|\||&&|\^\^|\|\|)'
       scope: keyword.operator.arithmetic.cns
 
   functions:
-    - match: '([a-zA-Z0-9_]+)\s*(\()'
+    - match: '(?i)(const|stagevar|stageconst|gethitvar)\s*(\()'
       captures:
         1: variable.function.cns
         2: punctuation.section.group.begin.cns
       push:
-        - include: numbers
-        - include: operators
+        - meta_content_scope: string.unquoted.cns
         - match: \)
           scope: punctuation.section.group.end.cns
           pop: true
+    - match: '({{identifier}})\s*(\()'
+      captures:
+        1: variable.function.cns
+        2: punctuation.section.group.begin.cns
+      push:
+        - include: trigger
+        - match: \)
+          scope: punctuation.section.group.end.cns
+          pop: true
+    - match: '({{identifier}})\s+([a-zA-Z])'
+      captures:
+        1: variable.function.cns
+    - match: '{{identifier}}'
+      scope: variable.function.cns
 
   numbers:
-    - match: '\.?\b[0-9]+\b'
+    - match: '[A-Z]+([0-9]+)'
+      scope: constant.numeric.cns
+    - match: '[0-9]+|[0-9]*\.[0-9]+'
       scope: constant.numeric.cns
 
   strings:
@@ -77,19 +91,9 @@ contexts:
         - match: \n
           scope: invalid.illegal.cns
           pop: true
-    - match: \'
-      scope: punctuation.definition.string.begin.cns
-      push:
-        - meta_scope: string.quoted.single.cns
-        - match: \'
-          scope: punctuation.definition.string.end.cns
-          pop: true
-        - match: \n
-          scope: invalid.illegal.cns
-          pop: true
 
   comments:
-    - match: '\s*;'
+    - match: ';'
       scope: punctuation.definition.comment.cns
       push:
         - meta_scope: comment.line.semi-colon.cns

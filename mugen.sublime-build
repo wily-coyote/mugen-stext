@@ -19,10 +19,19 @@
 			"char1": "${kfm}",
 			"char2": "${def_input}"
 		},
+		{
+			"name": "KFM vs KFM",
+			"char1": "${kfm}",
+			"char2": "${kfm}"
+		},
 		// {
 			// "name": "Motif",
 			// "motif": "${file_base_name}"
 		// },
+		{
+			"name": "Storyboard",
+			"storyboard": "${def_input}"
+		},
 		{
 			"name": "Stage",
 			"char1": "${kfm}",

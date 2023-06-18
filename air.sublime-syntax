@@ -24,7 +24,7 @@ contexts:
           pop: true
 
   numbers:
-    - match: '-?\.?\b[0-9.]+\b'
+    - match: '-?([0-9]*\.[0-9]|[0-9]+)'
       scope: constant.numeric.air
 
   sections:
@@ -45,6 +45,10 @@ contexts:
         2: constant.language.air
     - match: '(?i)loopstart'
       scope: variable.function.air
+    - match: '(?i)A(1)'
+      scope: variable.function.air
+      captures:
+        1: constant.numeric.air
     - match: '(?i)AS(\d+)D(\d+)'
       scope: variable.function.air
       captures:

@@ -21,6 +21,15 @@
 			"char2": "${def_input}"
 		},
 		{
+			"name": "KFM vs KFM",
+			"char1": "${kfm}",
+			"char2": "${kfm}"
+		},
+		{
+			"name": "Storyboard",
+			"storyboard": "${def_input}"
+		},
+		{
 			"name": "Stage",
 			"char1": "${kfm}",
 			"char2": "${kfm}",

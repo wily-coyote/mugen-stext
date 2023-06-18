@@ -18,13 +18,16 @@ class MugenCommand(command.BaseCommand):
 			sublime.error_message("Please tell me where {} is and run the build again.".format("IKEMEN" if shtuff.get("ikemen", False) is True else "MUGEN"))
 			self.window.open_file("{}/MUGEN.sublime-settings".format(os.path.join(sublime.packages_path(), "User")))
 			return
-		for x in ["char1", "char2", "motif", "stage"]:
+		for x in ["char1", "char2", "motif", "stage", "storyboard"]:
 			if shtuff[x] == "${file_base_name}":
 				shtuff[x] = vars["file_base_name"]
 			if shtuff[x] == "${def_input}":
 				thing = "chars"
 				if x == "stage":
 					thing = "stages"
+				if x == "storyboard":
+					shtuff[x] = vars["file"]
+					continue
 				shtuff[x] = (os.path.splitext(os.path.relpath(vars["file"], os.path.join(os.path.dirname(mugen), thing)))[0].replace("\\", "/"))+".def"
 			if shtuff[x] == "${kfm}":
 				shtuff[x] = kfm
@@ -49,4 +52,7 @@ class MugenCommand(command.BaseCommand):
 		if len(shtuff["stage"]) > 0:
 			args.append("-s")
 			args.append(shtuff["stage"])
+		if len(shtuff["storyboard"]) > 0:
+			args.append("-storyboard")
+			args.append(shtuff["storyboard"])
 		return os.path.split(mugen)[0], args

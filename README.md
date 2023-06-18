@@ -17,6 +17,14 @@ Just `git clone` it to the Packages folder. I can't be bothered to host it on pa
 
 ### Changelog
 
+#### 18-06-2023 - 2.1.0
+- Add "KFM vs KFM" build target
+- Add "Storyboard" build target
+- Improve CNS trigger syntax highlighting
+- MUGEN: Properly highlight A1 in AIR
+- MUGEN: Add .st to CNS syntax file extension list
+- MUGEN: Add symbol navigation to CNS sections
+
 #### 04-04-2023 - 2.0.0
 - Add `-c`, `-f`, `-p` to sprmake2 build target
 - Make base command class check `ikemen_path` if needed
