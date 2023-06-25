@@ -17,6 +17,11 @@ Just `git clone` it to the Packages folder. I can't be bothered to host it on pa
 
 ### Changelog
 
+#### 18-06-2023 - 2.2.0
+- IKEMEN: Rewrite ZSS syntax
+- Fix `<prefix>n` (i.e. `F2, 3`) CNS number detection
+- Highlight argument inside const, map, stagevar, gethitvar triggers as string
+
 #### 18-06-2023 - 2.1.0
 - Add "KFM vs KFM" build target
 - Add "Storyboard" build target

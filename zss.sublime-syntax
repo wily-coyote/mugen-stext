@@ -5,6 +5,9 @@ file_extensions:
   - zss
 scope: source.zss
 
+variables:
+  identifier: '[a-zA-Z-._][a-zA-Z0-9-._]*'
+
 contexts:
   prototype:
     - include: comments
@@ -14,10 +17,21 @@ contexts:
     - include: sections
     - include: variables
     - include: keywords
+    - include: modifier
     - include: operators
     - include: functions
     - include: numbers
     - include: strings
+    - include: everything_else
+
+  inside_function:
+    - include: variables
+    - include: keywords
+    - include: operators
+    - include: functions
+    - include: numbers
+    - include: strings
+    - include: everything_else
 
   sections:
     - include: numbers
@@ -26,27 +40,35 @@ contexts:
       push:
         - meta_scope: keyword.context.block.zss
         - include: numbers
-        - match: '([a-zA-Z0-9-_]+)\s*:'
+        - match: '({{identifier}})\s*:'
           captures:
             1: string.unquoted.zss
           push:
             - clear_scopes: 1
-            - include: functions
             - include: numbers
+            - include: everything_else
+            - match: '-'
+              scope: keyword.operator.arithmetic.zss
             - match: ;
               scope: keyword.control.block.zss
               pop: true
+            - include: functions
         - include: functions
         - match: '\]'
           scope: punctuation.section.group.end.zss
           pop: true
 
   keywords:
-    - match: '\b(if|else|for|while|let|call)\b'
+    - match: '\b(if|else|for|while|let|call|switch|case|default|break|continue)\b'
       scope: keyword.control.zss
 
+  modifier:
+    - match: '(?i)\b(ignorehitpause|persistent)\b'
+      scope: variable.annotation.zss
+
+
   variables:
-    - match: '\$[a-zA-Z0-9-_]+'
+    - match: '\${{identifier}}'
       scope: variable.other.zss
 
   function_declaration:
@@ -56,13 +78,13 @@ contexts:
       push:
         - meta_scope: keyword.context.block.zss
         - include: numbers
-        - match: '([a-zA-Z0-9_-]+)\s*(\()'
+        - match: '({{identifier}})\s*(\()'
           captures:
             1: entity.name.function.zss
             2: punctuation.section.group.begin.zss
           push:
             - clear_scopes: 1
-            - match: '[a-zA-Z0-9-_]+'
+            - match: '{{identifier}}'
               scope: variable.parameter.zss
             - match: '\)'
               scope: punctuation.section.group.end.zss
@@ -72,36 +94,48 @@ contexts:
           pop: true
 
   operators:
-    - match: '[+\-*/%!&|^~=<>]{1,2}'
-      scope: keyword.operator.zss
+    - match: '(!|~|-|\*\*|\*|/|%|\+|>|>=|<|<=|=|!=|:=|&|\^|\||&&|\^\^|\|\|)'
+      scope: keyword.operator.arithmetic.zss
 
   numbers:
     - match: '\.?\b[0-9]+\b'
       scope: constant.numeric.zss
 
   functions:
-    - match: '([a-zA-Z0-9_]+)\s*(\()'
+    - match: '(?i)(const|stagevar|stageconst|gethitvar|map)\s*(\()'
+      captures:
+        1: variable.function.zss
+        2: punctuation.section.group.begin.zss
+      push:
+        - meta_content_scope: string.unquoted.zss
+        - match: \)
+          scope: punctuation.section.group.end.zss
+          pop: true
+    - match: '({{identifier}})\s*(\()'
       captures:
         1: variable.function.zss
         2: punctuation.section.group.begin.zss
       push:
         - clear_scopes: 1
-        - include: main
+        - include: inside_function
         - match: \)
           scope: punctuation.section.group.end.zss
           pop: true
-    - match: '([a-zA-Z0-9_]+)\s*({)'
+    - match: '({{identifier}})\s*({)'
       captures:
         1: variable.function.zss
         2: punctuation.section.group.begin.zss
       push:
-        - include: main
-        - match: '([a-zA-Z0-9-_.]+)\s*:'
+        - match: '({{identifier}})\s*:'
           captures:
             1: string.unquoted.zss
+        - include: inside_function
         - match: \}
           scope: punctuation.section.group.end.zss
           pop: true
+    - match: '({{identifier}})\s+([a-zA-Z])\b'
+      captures:
+        1: variable.function.zss
 
   strings:
     - match: '"'
@@ -124,6 +158,10 @@ contexts:
         - match: \n
           scope: invalid.illegal.zss
           pop: true
+
+  everything_else:
+    - match: '{{identifier}}'
+      scope: variable.function.zss
 
   comments:
     - match: '#'

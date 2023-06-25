@@ -50,7 +50,7 @@ contexts:
       scope: keyword.operator.arithmetic.cns
 
   functions:
-    - match: '(?i)(const|stagevar|stageconst|gethitvar)\s*(\()'
+    - match: '(?i)(const|stagevar|stageconst|gethitvar|map)\s*(\()'
       captures:
         1: variable.function.cns
         2: punctuation.section.group.begin.cns
@@ -75,7 +75,7 @@ contexts:
       scope: variable.function.cns
 
   numbers:
-    - match: '[A-Z]+([0-9]+)'
+    - match: '[A-Z]+\s*([0-9]+)\b'
       scope: constant.numeric.cns
     - match: '[0-9]+|[0-9]*\.[0-9]+'
       scope: constant.numeric.cns
