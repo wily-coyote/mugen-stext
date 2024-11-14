@@ -17,6 +17,10 @@ Just `git clone` it to the Packages folder. I can't be bothered to host it on pa
 
 ### Changelog
 
+#### 13-11-2024 - 2.3.0
+- Use new TSV format
+- Stopped hovering when line is empty
+
 #### 18-06-2023 - 2.2.0
 - IKEMEN: Rewrite ZSS syntax
 - Fix `<prefix>n` (i.e. `F2, 3`) CNS number detection
