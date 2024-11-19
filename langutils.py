@@ -56,7 +56,7 @@ class CNSCompletions(sublime_plugin.EventListener):
 			return
 		is_zss = view.match_selector(locations[0], "source.zss") is True
 
-		line = view.substr(view.line(locations[0]))
+		# line = view.substr(view.line(locations[0]))
 		prefix = prefix.lower()
 		out = []
 
@@ -182,7 +182,7 @@ class CNSTooltips(sublime_plugin.EventListener):
 
 class ShowSctrlDocumentationCommand(sublime_plugin.ApplicationCommand):
 	def run(self, arg=None):
-		if arg: 
+		if arg:
 			sublime.active_window().active_view().show_popup(
 				sctrl_doc(arg),
 				flags=sublime.COOPERATE_WITH_AUTO_COMPLETE|sublime.HIDE_ON_MOUSE_MOVE_AWAY,
@@ -191,7 +191,7 @@ class ShowSctrlDocumentationCommand(sublime_plugin.ApplicationCommand):
 
 class ShowTriggerDocumentationCommand(sublime_plugin.ApplicationCommand):
 	def run(self, arg=None):
-		if arg: 
+		if arg:
 			sublime.active_window().active_view().show_popup(
 				trigger_doc(arg),
 				flags=sublime.COOPERATE_WITH_AUTO_COMPLETE|sublime.HIDE_ON_MOUSE_MOVE_AWAY,
