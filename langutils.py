@@ -60,31 +60,6 @@ class CNSCompletions(sublime_plugin.EventListener):
 		prefix = prefix.lower()
 		out = []
 
-
-		def do_Trigger():
-			for key in data["trigger"]:
-				if key.lower().startswith(prefix):
-					completed = data["trigger"].get(key) or None
-					if completed is None: continue
-					idx = 1
-					def lovepython(x):
-						nonlocal idx
-						ret = "${{{}:{}}}".format(idx, x.group(1))
-						idx = idx + 1
-						return ret
-					fmt = completed["fmt"]
-					fmt = _fmt_money_re.sub(lambda x: lovepython(x), fmt)
-					print(fmt)
-					item = sublime.CompletionItem(
-						key,
-						"trigger",
-						fmt,
-						1,
-						(7, "t", "trigger"),
-						"<a href='subl:show_trigger_documentation {{\"arg\": \"{}\"}}'>Show documentation</a>".format(key)
-					)
-					out.append(item)
-
 		for key in data["sctrl"]:
 			if key.lower().startswith(prefix):
 				completed = data["sctrl"].get(key) or None
@@ -140,7 +115,30 @@ class CNSCompletions(sublime_plugin.EventListener):
 					"<a href='subl:show_sctrl_documentation {{\"arg\": \"{}\"}}'>Show documentation</a>".format(key)
 				)
 				out.append(item)
-		do_Trigger()
+		for key in data["trigger"]:
+			if key.lower().startswith(prefix):
+				completed = data["trigger"].get(key) or None
+				if completed is None: continue
+				idx = 1
+				def lovepython(x):
+					nonlocal idx
+					ret = "${{{}:{}}}".format(idx, x.group(1))
+					idx = idx + 1
+					return ret
+				fmt = completed["fmt"]
+				if fmt is None:
+					fmt = _fmt_money_re.sub(lambda x: lovepython(x), fmt)
+				else:
+					fmt = key
+				item = sublime.CompletionItem(
+					key,
+					"trigger",
+					fmt,
+					1,
+					(7, "t", "trigger"),
+					"<a href='subl:show_trigger_documentation {{\"arg\": \"{}\"}}'>Show documentation</a>".format(key)
+				)
+				out.append(item)
 		return out
 
 class CNSTooltips(sublime_plugin.EventListener):
