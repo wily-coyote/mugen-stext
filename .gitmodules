@@ -1,6 +1,3 @@
-[submodule "mugen-nvim"]
-	path = mugen-nvim
-	url = https://github.com/wily-coyote/mugen-nvim
 [submodule "utils/data"]
 	path = utils/data
 	url = https://github.com/wily-coyote/mugen-cmp-data
